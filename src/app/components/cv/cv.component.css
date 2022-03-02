@@ -1,0 +1,13 @@
+img{
+    width: 20%;
+    border-radius: 50%;
+    align-items: center;
+    float: left;
+    margin-top: 50px;
+}
+.fotoPerfil{
+    align-items: center;
+}
+li{
+    list-style: none;
+}

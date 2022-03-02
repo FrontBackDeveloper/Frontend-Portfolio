@@ -1,0 +1,46 @@
+<div class="titulo">
+	<h1>Hola,</h1>
+	<h2>Soy {{infoPersonalList.acercade.nombrecompleto}}</h2>
+	<p>{{infoPersonalList.acercade.puesto}}</p><br>
+	<div>
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalcontacto" data-bs-whatever="@mdo">Contáctame</button>
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCV">
+			Descargar CV
+		</button>
+	</div><br>
+</div>	
+<!-- modal contacto -->
+			<div class="modal fade" id="exampleModalcontacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Contáctame</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<app-contacto></app-contacto>
+				</div>
+				
+				</div>
+			</div>
+			</div>
+
+<!-- modal cv -->
+				<div class="modal fade" id="exampleModalCV" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Currículum Vitae</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+	
+							<app-cv></app-cv>
+						
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-primary" (click)="descargarCV()">Descargar</button>
+						</div>
+					</div>
+					</div>
+				</div>

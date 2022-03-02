@@ -1,0 +1,37 @@
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+
+
+<div class="topnav" id="myTopnav">
+     <div class="logo">
+      <img src="../../../assets/logo_argentinaPrograma (2).jpg" alt="Logotipo Argentina Programa" title="Logotipo Argentina Programa">
+      <a href="https://argentinaprograma.inti.gob.ar" target="blank">Argentina Programa - #YoProgramo</a>
+     </div>
+  
+     <div class="menu">
+        <a [href]="miportfolio.acercade.github" class="fa fa-github" target="_blank"></a>
+        <a [href]="miportfolio.acercade.linkedin" class="fa fa-linkedin" target="_blank"></a>
+        <a [href]="miportfolio.acercade.youtube" class="fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#ModalLogin" >Login</a>
+     </div>
+</div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="ModalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
+         <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ModalLoginLabel">Login de usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <app-login></app-login>
+            </div>
+            <div class="modal-footer">
+           
+            </div>
+         </div>
+         </div>
+      </div>		
+               
+
+   

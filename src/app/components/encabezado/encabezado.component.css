@@ -1,0 +1,55 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #34495E ;
+  overflow: hidden;
+  font-family: sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style the links inside the navigation bar */
+.topnav img{
+  width: 50px;
+  border-radius: 5px;
+  float: left;
+  margin: 5px 5px;
+  
+}
+.topnav p{
+  color: #fff;
+  font-size:17px;
+  float: left;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.topnav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Change the color of links on hover */
+.topnav .logo a:hover {
+  color: orange;
+}
+.topnav .menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+.menu a{
+  font-size: 20px;
+}

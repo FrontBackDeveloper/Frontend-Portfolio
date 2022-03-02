@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="fotoPerfil"><img [src]="infoPersonal.acercade.fotoperfil" alt=""></div>
+    <div class="card">
+        <h4>Informacion Personal</h4>
+        <ul>
+            <li>{{"Nombre: " + infoPersonal.acercade.nombrecompleto}}</li>
+            <li>{{"Edad: " + infoPersonal.acercade.edad}}</li>
+            <li>{{"Puesto: " + infoPersonal.acercade.puesto}}</li>
+            <li>{{"Ciudad: " + infoPersonal.acercade.ciudad}}</li>
+            <li>{{"Pais: " + infoPersonal.acercade.pais}}</li>
+            <li>{{"Telefono: " + infoPersonal.acercade.telefono}}</li>
+            <li>{{"Correo electrónico: " + infoPersonal.acercade.email}}</li>
+            <li>{{"Github: " + infoPersonal.acercade.github}}</li>
+            <li>{{"Linkedin: " + infoPersonal.acercade.linkedin}}</li>
+            <li>{{"Youtube: "+ infoPersonal.acercade.youtube}}</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h4>Educacion</h4>
+        <ul>
+            <li *ngFor="let educacion of formacionList">
+                
+                    {{"Título: " + educacion.titulo}} <br>
+                    {{"Institución: " + educacion.institucion}} <br>
+                    {{"Lugar: " + educacion.lugar}} <br>
+                    {{"Período: " + educacion.Fecha}} <br>
+                    <hr>
+               
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Experiencia</h4>
+        <ul>
+            <li *ngFor="let experiencia of experienciaList">
+                
+                    {{"Título: " + experiencia.titulo}} <br>
+                    {{"Tipo: " + experiencia.tipo}} <br>
+                    {{"Herramientas: " + experiencia.herramientas}} <br>
+                    {{"Estado: " + experiencia.creado}} <br>
+                    <hr>    
+            </li>
+        </ul>
+    </div>
+
+</div>

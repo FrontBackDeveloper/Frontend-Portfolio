@@ -1,0 +1,40 @@
+.titulo {
+	margin: 0 auto;
+	padding:40px;
+	background-image: url(../../../assets/fondo-header.jpg);
+	background-size: 100vw 100hw;
+	max-width: 1200px;
+	background-position: center;
+	
+}
+.titulo h1{
+	font-size: 45px;
+	color: #ccc;
+	margin-left: 100px;
+}
+.titulo h2{
+	font-size: 35px;
+	color: #fff;
+	margin-left: 100px;
+}
+.titulo p{
+	font-size: 20px;
+	color: #ccc;
+	margin-left: 100px;
+}
+.btn{
+	padding: 8px 15px;
+	margin-left: 100px;
+}
+.btn:hover{
+	background: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	transition: 0.4s;
+}
+.container{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+li{
+	list-style: none;
+}

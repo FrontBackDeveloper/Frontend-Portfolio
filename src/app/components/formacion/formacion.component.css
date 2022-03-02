@@ -1,0 +1,19 @@
+.contenedor{
+        background: #efefef;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+        max-width: 1200px;
+        border-bottom: 1px solid #000;
+    
+}
+li{
+    list-style: none;
+}
+.img img{
+	width: 10%;
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
