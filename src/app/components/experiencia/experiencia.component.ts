@@ -8,9 +8,14 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  
+  item:any;
 experienciaList:any;
   constructor(private datos:DatosService) { }
+
+  seleccionar(index:number){
+    alert("el index es:" + index );
+    this.experienciaList[index] = this.item;
+  }
 
   guardarItem(){
     alert("Se ha guardado correctamente");

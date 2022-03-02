@@ -2,7 +2,7 @@
 	<h4>Experiencia</h4>
 	<div class="container-fluid">
 		<ul>
-			<li *ngFor="let experiencia of experienciaList">
+			<li *ngFor="let experiencia of experienciaList , let i=index">
 				<div class="container">
 					
 					<div class="card">
@@ -20,7 +20,7 @@
 								 <p class="card-text"><strong>Estado: </strong>{{experiencia.estado}}</p>
 								 <a href="https://github.com/FrontBackDeveloper/proyecto-web-geriatrico.git" class="btn btn-primary" target="_blank">Ver mas</a>
 								 <a  href="#" (click)="eliminarItem()" class="editar fa fa-trash" title="eliminar"></a>																			
-								 <a  href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
+								 <a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
 									
 						  </div>
 					</div>

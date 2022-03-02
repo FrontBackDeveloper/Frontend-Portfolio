@@ -12,10 +12,10 @@ export class FormacionComponent implements OnInit {
   item:any;
 
   constructor(private datos:DatosService) { }
-
+  
   seleccionar(index:number){
-    alert("el index es:" + index );
-    this.formacionList[index] = this.item;
+    alert("el index es:" + index + this.formacionList[index]);
+    
   }
 
   guardarItem(){
@@ -23,6 +23,7 @@ export class FormacionComponent implements OnInit {
   }
 
   eliminarItem(){
+
     alert("Se ha eliminado correctamente");
   }
 
