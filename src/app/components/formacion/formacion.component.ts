@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { observable } from 'rxjs';
 import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class FormacionComponent implements OnInit {
   constructor(private datos:DatosService) { }
   
   seleccionar(index:number){
-    alert("el index es:" + index + this.formacionList[index]);
+    alert("el index es:" + index);
     
   }
 
