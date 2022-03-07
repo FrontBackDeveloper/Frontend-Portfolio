@@ -2,7 +2,7 @@
 	<h4>Logros</h4>
 	<div class="container-fluid">
 		<ul>
-			<li *ngFor="let logro of logrosList">
+			<li *ngFor="let logro of logrosList ; let i=index">
 				<div class="container">
 					<div class="card" style="width: 18rem;">
 						<img [src]="logro.imagen" class="card-img-top" alt="Imagen de logros">
@@ -13,7 +13,8 @@
 						  <p class="card-text">{{logro.fecha}}</p>
 						  <a href="#" class="btn btn-primary">Ver mas</a>  
 						  <a  href="#" (click)="eliminarItem()" class="editar fa fa-trash" title="eliminar"></a>																			
-						  <a  href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a></div>
+						  <a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-logros" title="editar"></a>
+						</div>
 				  </div>
 				</div>
 			</li>
@@ -25,22 +26,22 @@
 		<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-			<h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+			<h5 class="modal-title" id="editar-logros">Editar Logros</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<label for="tipo">Tipo: </label>
-				<input  type="text" class="form-control" [(ngModel)]="logrosList.tipo"><br>
+				<input  type="text" class="form-control" [(ngModel)]="item.tipo"><br>
 				<label for="titulo">Titulo: </label>
-				<input  type="text" class="form-control" [(ngModel)]="logrosList.titulo"><br>
+				<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
 				<label for="institucion">Institución: </label>
-				<input  type="text" class="form-control" [(ngModel)]="logrosList.institucion"><br>
+				<input  type="text" class="form-control" [(ngModel)]="item.institucion"><br>
 				<label for="fecha">Fecha</label>
-				<input  type="text" class="form-control" [(ngModel)]="logrosList.fecha"><br>		
+				<input  type="text" class="form-control" [(ngModel)]="item.fecha"><br>		
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
-				<button type="button" class="btn btn-danger" (click)="eliminarItem()">Eliminar</button>
+				
 			</div>
 		</div>
 		</div>

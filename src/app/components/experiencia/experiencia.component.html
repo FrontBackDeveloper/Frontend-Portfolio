@@ -2,7 +2,7 @@
 	<h4>Experiencia</h4>
 	<div class="container-fluid">
 		<ul>
-			<li *ngFor="let experiencia of experienciaList , let i=index">
+			<li *ngFor="let experiencia of experienciaList ; let i=index">
 				<div class="container">
 					
 					<div class="card">
@@ -20,7 +20,7 @@
 								 <p class="card-text"><strong>Estado: </strong>{{experiencia.estado}}</p>
 								 <a href="https://github.com/FrontBackDeveloper/proyecto-web-geriatrico.git" class="btn btn-primary" target="_blank">Ver mas</a>
 								 <a  href="#" (click)="eliminarItem()" class="editar fa fa-trash" title="eliminar"></a>																			
-								 <a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
+								 <a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-experiencia" title="editar"></a>
 									
 						  </div>
 					</div>
@@ -33,25 +33,25 @@
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+		<h5 class="modal-title" id="editar-experiencia">Editar Experiencia</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
 			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" [(ngModel)]="experienciaList.titulo"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
 			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" [(ngModel)]="experienciaList.tipo"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.tipo"><br>
 			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control"[(ngModel)]="experienciaList.creado"><br>
+			<input  type="text" class="form-control"[(ngModel)]="item.creado"><br>
 			<label for="fecha">Período</label>
-			<input  type="text" class="form-control" [(ngModel)]="experienciaList.herramientas"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.herramientas"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control"  [(ngModel)]="experienciaList.estado"><br>
+			<input  type="text" class="form-control"  [(ngModel)]="item.estado"><br>
 			
 		</div>
 		<div class="modal-footer">
 		<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
-		<button type="button" class="btn btn-danger" (click)="eliminarItem()">Eliminar</button>
+		
 		</div>
 	</div>
 	</div>

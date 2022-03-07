@@ -8,9 +8,16 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./logros.component.css']
 })
 export class LogrosComponent implements OnInit {
+
+item:any=[];
 logrosList:any;
 
   constructor(private datos:DatosService) { }
+
+  seleccionar(index:number){
+    this.item = this.logrosList[index];
+  }
+
   guardarItem(){
     alert("Se ha guardado correctamente");
   }

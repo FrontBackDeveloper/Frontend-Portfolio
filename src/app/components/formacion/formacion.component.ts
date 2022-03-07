@@ -8,15 +8,17 @@ import { DatosService } from 'src/app/servicios/datos.service';
 })
 export class FormacionComponent implements OnInit {
   formacionList:any;
-  item:any;
+  item:any=[];
 
   constructor(private datos:DatosService) { }
   
   seleccionar(index:number){
-    alert("el index es:" + index);
-    
+    this.item=this.formacionList[index];
   }
 
+  nuevoItem(){
+    alert("agregar nuevo Formacion");
+  }
   guardarItem(){
     alert("Se ha guardado correctamente");
   }

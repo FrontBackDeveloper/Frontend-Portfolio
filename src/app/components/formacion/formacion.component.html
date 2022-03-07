@@ -14,7 +14,8 @@
 								</div>
 										<h5 class="card-title"><strong>Institución: </strong>{{formacion.institucion}}</h5>
 										<p class="card-text"><strong>Ciudad/Pais: </strong>{{formacion.lugar}}</p>
-										<p class="card-text"><strong>Fecha: </strong>{{formacion.Fecha}}</p>		
+										<p class="card-text"><strong>Fecha: </strong>{{formacion.Fecha}}</p>
+										<a  href="#" (click)="nuevoItem()" class="editar fa fa-pen"  title="nuevo"></a>		
 										<a  href="#" (click)="eliminarItem()" class="editar fa fa-trash"  title="eliminar"></a>																			
 										<a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
 									
@@ -30,20 +31,20 @@
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+		<h5 class="modal-title" id="staticBackdropLabel">Editar Formación</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
 			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" [(ngModel)]="formacionList.titulo"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
 			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" [(ngModel)]="formacionList.institucion"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.institucion"><br>
 			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" [(ngModel)]="formacionList.lugar"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
 			<label for="fecha">Período</label>
-			<input  type="text" class="form-control" [(ngModel)]="formacionList.Fecha"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.Fecha"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control" [(ngModel)]="formacionList.imagen"><br>
+			<input  type="text" class="form-control" [(ngModel)]="item.imagen"><br>
 			
 		</div>
 		<div class="modal-footer">
