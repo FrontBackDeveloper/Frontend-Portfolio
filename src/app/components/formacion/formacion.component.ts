@@ -24,7 +24,6 @@ export class FormacionComponent implements OnInit {
   }
 
   eliminarItem(){
-
     alert("Se ha eliminado correctamente");
   }
 
