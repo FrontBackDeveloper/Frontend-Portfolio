@@ -14,8 +14,9 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 
-import {DatosService} from './servicios/datos.service';
-import {HttpClientModule} from '@angular/common/http';
+import { DatosService } from './servicios/datos.service';
+import { AuthService } from './servicios/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CVComponent } from './components/cv/cv.component';
 
@@ -40,7 +41,7 @@ import { CVComponent } from './components/cv/cv.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DatosService],
+  providers: [DatosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

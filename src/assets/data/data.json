@@ -1,5 +1,5 @@
 {
-	"acceso":{
+	"usuario":{ "id": 1,
 				"usuario":"gustavo",
 		 		"contraseña":"gustavo123",
 				"acceso": true},
@@ -62,11 +62,11 @@
 				],
 	"logros":[
 		{"Id": 1,
-		"imagen":"../../../assets/certificado-1.png",
-		"tipo":"Certificado",
 		"titulo":"#SeProgramar",
 		"institucion":"Argentina Programa",
-		"fecha":"26 de Octubre de 2021"
+		"tipo":"Certificado",
+		"fecha":"26 de Octubre de 2021",
+		"imagen":"../../../assets/certificado-1.png"
 		},
 		{"Id": 2,
 		"imagen":"../../../assets/certificado-2.png",
