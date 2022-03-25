@@ -11,10 +11,13 @@ import { FormacionComponent } from './components/formacion/formacion.component';
 import { LogrosComponent } from './components/logros/logros.component';
 import { PiedepaginaComponent } from './components/piedepagina/piedepagina.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { PortadaComponent } from './components/portada/portada.component';
 
 const routes: Routes = [
-{path: 'inicio', component:MainComponent},
-{path: 'login', component:LoginComponent}
+{path: 'portada', component:PortadaComponent},
+{path: 'login', component:LoginComponent},
+{path: 'main', component:MainComponent},
+{path: '', redirectTo: 'portada', pathMatch: 'full'}
 ];
 
 @NgModule({

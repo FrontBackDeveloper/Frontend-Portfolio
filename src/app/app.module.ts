@@ -19,6 +19,7 @@ import { AuthService } from './servicios/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CVComponent } from './components/cv/cv.component';
+import { PortadaComponent } from './components/portada/portada.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CVComponent } from './components/cv/cv.component';
     PiedepaginaComponent,
     LoginComponent,
     MainComponent,
-    CVComponent
+    CVComponent,
+    PortadaComponent
   ],
   imports: [
     BrowserModule,

@@ -11,15 +11,16 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 
 export class LoginComponent implements OnInit {
+  username:string = "";
+  password:string = "";
 
-  
-
-  constructor() { }
-
-  guardarPerfil(){
-    alert("Su perfil se ha guardado correctamente")
-  }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    console.log("Inicio de sesion: " + this.username + " " + this.password);
+    let responde = this.authService.login(this.username, this.password); 
   }
 }

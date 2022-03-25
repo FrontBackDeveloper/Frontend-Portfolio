@@ -1,7 +1,7 @@
 {
 	"usuario":[
         {"id": 1,
-		 "usuario":"gustavo",
+		 "username":"gustavo",
 		 "password":"gustavo123"
         }
               ],
@@ -61,6 +61,14 @@
 		"herramientas":"C++",
 		"estado":"En desarrollo",
 		"imagen":"../../../assets/Captura de pantalla (22).png"
+				},
+		{"Id": 4,
+		"titulo":"Portfolio Web",
+		"tipo":"Aplicacion SPA",
+		"creado":"Mayo 2022",
+		"herramientas":"Nodejs, Angular, Mysql, SpringBoot, Java",
+		"estado":"En desarrollo",
+		"imagen":"../../../assets/Captura de pantalla (49).png"
 				}
 				],
 	"logros":[

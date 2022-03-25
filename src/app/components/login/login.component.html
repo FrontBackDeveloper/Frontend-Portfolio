@@ -1,46 +1,17 @@
-<div class="container">
-    <form action="" method="post">
-        <div class="mb-3">
-          <label for="usuario" class="form-label">Usuario</label>
-          <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3">
-          <a href="#">Quiero Registrarme</a>
-        </div>
 
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-      </form>
-
-</div>
-<!--- modal nuevo-perfil-->
-<div class="modal fade" id="editar-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Editar Formación</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="login">
+	<div id="login">
+		<div class="contenedor-formularios">
+				<h2 class="tituloformulario">Inicio de Sesión</h2><br>
+			<hr>	
+       			 <form action="" method="post">
+		        	<label for="username"></label>
+		        	<input type="text" name="username"  placeholder="Nombre de Usuario">
+		        	<label for="password"></label>
+		        	<input type="password" name="password"  placeholder="Contraseña">
+		        	<input type="submit" value="ENVIAR" id="boton" routerLink="/main">
+                   
+		        </form>
 		</div>
-		<div class="modal-body">
-			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="fecha">Período</label>
-			<input  type="text" class="form-control"><br>
-			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control"><br>
-			
-		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarPerfil()">Guardar</button>
-
-		</div>
-	</div>
 	</div>
 </div>

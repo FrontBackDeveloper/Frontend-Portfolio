@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
@@ -9,18 +10,19 @@ import { DatosService } from 'src/app/servicios/datos.service';
 export class AcercadeComponent implements OnInit {
 
   infoPersonalList:any;
-  mostrarBotonEditar:boolean;
+  mostrarBotonEditar:any;
   
-  constructor(private datos:DatosService) { 
-    this.mostrarBotonEditar=true;
+  constructor(private datos:DatosService, private authService:AuthService) { 
+   
   }
 
   guardarItem(){
     alert("Se ha guardado correctamente");
   }
   
- 
   ngOnInit(): void {
+    this.mostrarBotonEditar = this.authService.isUserLogged();
+
     this.datos.obtenerDatos().subscribe(data =>{
         this.infoPersonalList=data.acercade;
         

@@ -7,7 +7,7 @@ import { Observable} from 'rxjs';
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   public login(usuario:string , password:string) : Boolean{
     if (usuario == "gustavo") {
@@ -18,13 +18,10 @@ export class AuthService {
      return false;
    }
   }
-
    public logout(){
      localStorage.removeItem("user");
    }
-
-   public isUserLogger(): Boolean {
-
+   public isUserLogged(): Boolean {
     return localStorage.getItem("user") !== null;
    }
   

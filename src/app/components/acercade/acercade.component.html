@@ -1,12 +1,11 @@
 <div class="contenedor">
 		<div id="info">
-			<h3> A cerca de </h3>
+			<h3> Perfil </h3>
 				<div class="info">
 					<ul>
 						<li><strong>Nombre:</strong> {{infoPersonalList.nombrecompleto}}</li>
 						<li><strong>Edad:</strong> {{infoPersonalList.edad}}</li>
-						<li><strong>Puesto:</strong> {{infoPersonalList.puesto}}</li>
-						<li><strong>Titulo Secundario:</strong> {{infoPersonalList.titulosecundario}}</li>
+						<li><strong>Ocupacion:</strong> {{infoPersonalList.puesto}}</li>
 						<li><strong>Ciudad:</strong> {{infoPersonalList.ciudad}}</li>
 						<li><strong>Pais:</strong> {{infoPersonalList.pais}}</li>
 						<li><strong>Correo electrónico:</strong> {{infoPersonalList.email}}</li>
@@ -14,6 +13,10 @@
 						<li><strong>Hobby:</strong> {{infoPersonalList.hobby}}</li>
 						<hr>
 					</ul>
+					<div>
+						<h4>A cerca de</h4>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, doloremque. Amet optio dolorum, esse ad magni omnis ullam tempora dignissimos. Libero, amet. Eius vel cupiditate incidunt aliquam, maiores inventore laudantium?</p>
+					</div>
 					<a [href]="infoPersonalList.github" class="icon fa fa-github" target="_blank"></a>
 					<a [href]="infoPersonalList.linkedin" class="icon fa fa-linkedin" target="_blank"></a>
 					<a [href]="infoPersonalList.Youtube" class="icon fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
@@ -24,7 +27,7 @@
 					    <img [src]="infoPersonalList.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
 				
 						<!-- Button trigger modal -->
-						<a  href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
+						<a href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
 			
 			<!-- Modal -->
 			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
