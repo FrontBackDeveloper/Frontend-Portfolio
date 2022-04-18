@@ -15,7 +15,7 @@ export class AuthService {
     return this.http.post<Boolean>("http://localhost:8080/login", credentials).pipe(
       tap((response: Boolean) => {
         if (response)
-          sessionStorage.setItem("user", "gustavobeltran");
+          sessionStorage.setItem("user", "gustavo123");
       })
     );
   }

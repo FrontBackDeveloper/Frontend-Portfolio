@@ -16,16 +16,14 @@
         </ul>
     </div>
     <div class="card">
-        <h4>Educacion</h4>
+        <h4>Formación</h4>
         <ul>
-            <li *ngFor="let educacion of formacionList">
-                
-                    {{"Título: " + educacion.titulo}} <br>
-                    {{"Institución: " + educacion.institucion}} <br>
-                    {{"Lugar: " + educacion.lugar}} <br>
-                    {{"Período: " + educacion.fecha}} <br>
+            <li *ngFor="let formacion of formacionList">
+                    {{"Título: " + formacion.titulo}} <br>
+                    {{"Institución: " + formacion.institucion}} <br>
+                    {{"Lugar: " + formacion.lugar}} <br>
+                    {{"Período: " + formacion.fecha}} <br>
                     <hr>
-               
             </li>
         </ul>
     </div>
@@ -34,13 +32,14 @@
         <h4>Experiencia</h4>
         <ul>
             <li *ngFor="let experiencia of experienciaList">
-                
                     {{"Puesto: " + experiencia.puesto}} <br>
                     {{"Lugar: " + experiencia.lugar}} <br>
                     {{"Desde: " + experiencia.desde + "Hasta: " + experiencia.hasta}} <br>
                     <hr>    
             </li>
         </ul>
+    </div>
+    <div class="card">
         <h4>Logros</h4>
         <ul>
             <li *ngFor="let logros of logrosList">

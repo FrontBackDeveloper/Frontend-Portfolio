@@ -1,8 +1,7 @@
 <div class="contenedor">
 	<div class="col-1"><h4>Formación</h4></div>
 	<div class="col-10"></div>
-	<div class="col-1"><a  href="#"  class="editar fa fa-pencil"  data-bs-toggle="modal" data-bs-target="#nuevo-formacion" title="nuevo"></a></div>
-	
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-pencil"  data-bs-toggle="modal" data-bs-target="#nuevo-formacion" title="nuevo"></a></div>
 	<div class="container-fluid">
 		<ul>
 			<li *ngFor="let formacion of formacionList , let i=index">
@@ -15,9 +14,9 @@
 								<div class="img">
 									<img [src]="formacion.imagen" alt="logo de institución">
 								</div>
-										<h5 class="card-title"><strong>Institución: </strong>{{formacion.institucion}}</h5>
-										<p class="card-text"><strong>Ciudad/Pais: </strong>{{formacion.lugar}}</p>
-										<p class="card-text"><strong>Fecha: </strong>{{formacion.fecha}}</p>
+										<h5 class="card-title"><b>Institución: </b>{{formacion.institucion}}</h5>
+										<p class="card-text"><b>Ciudad/Pais: </b>{{formacion.lugar}}</p>
+										<p class="card-text"><b>Fecha: </b>{{formacion.fecha}}</p>
 										<a  href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar"  title="eliminar"></a>																			
 										<a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
 									

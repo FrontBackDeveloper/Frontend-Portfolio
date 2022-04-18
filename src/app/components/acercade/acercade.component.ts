@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-import { Acercade } from 'src/app/data/Acercade';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Personas } from 'src/app/data/Personas';
+
 
 @Component({
   selector: 'app-acercade',
@@ -12,6 +13,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AcercadeComponent implements OnInit {
 
   infoPersonal: any;
+  infoPersonalAcercade: any;
   isUserLogged: Boolean = false;
   
   constructor(private portfolioservice:PortfolioService, 
@@ -26,10 +28,14 @@ export class AcercadeComponent implements OnInit {
   ngOnInit(): void {
     this.isUserLogged = this.authService.isUserLogged();
 
-    this.portfolioservice.obtenerDatosAcercade().subscribe(data =>{
-        this.infoPersonal=data;
-        
+    this.portfolioservice.obtenerDatosPersonas().subscribe(data =>{
+        this.infoPersonal=data; 
+        console.log(data);    
     });
+    this.portfolioservice.obtenerDatosAcercade().subscribe(data =>{
+      this.infoPersonalAcercade=data;    
+      console.log(data);   
+  });
    
 
   }

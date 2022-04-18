@@ -38,6 +38,9 @@ export class PortfolioService {
   obtenerDatosProyectos(): Observable<Proyectos[]> {
     return this.http.get<any>("http://localhost:8080/proyectos/traer");
   }
+  obtenerDatosAptitudes(): Observable<Aptitudes[]> {
+    return this.http.get<any>("http://localhost:8080/aptitudes/traer");
+  }
   obtenerDatosRedesSociales(): Observable<RedesSociales[]> {
     return this.http.get<any>("http://localhost:8080/redessociales/traer");
   }

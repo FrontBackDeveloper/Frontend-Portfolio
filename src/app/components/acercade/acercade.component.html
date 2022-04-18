@@ -12,11 +12,11 @@
 						<li><strong>Correo electrónico:</strong> {{infoPersonal.email}}</li>
 						<li><strong>Telefono:</strong> {{infoPersonal.telefono}}</li>
 						<li><strong>Hobby:</strong> {{infoPersonal.hobby}}</li>
-						<hr>
+						<hr> 
 					</ul>
 					<div>
 						<h4>A cerca de</h4>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, doloremque. Amet optio dolorum, esse ad magni omnis ullam tempora dignissimos. Libero, amet. Eius vel cupiditate incidunt aliquam, maiores inventore laudantium?</p>
+						<p>{{infoPersonalAcercade.descripcion}}</p>
 					</div>
 					<a [href]="infoPersonal.github" class="icon fa fa-github" target="_blank"></a>
 					<a [href]="infoPersonal.linkedin" class="icon fa fa-linkedin" target="_blank"></a>
@@ -28,7 +28,7 @@
 					    <img [src]="infoPersonal.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
 				
 						<!-- Button trigger modal -->
-						<a href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
+						<a  *ngIf="isUserLogged" href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
 			
 			<!-- Modal -->
 			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
