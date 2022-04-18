@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Experiencia } from 'src/app/data/Experiencia';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -10,24 +11,24 @@ import { DatosService } from 'src/app/servicios/datos.service';
 export class ExperienciaComponent implements OnInit {
 
   item:any=[];
-  experienciaList:any;
+  experienciaList:Experiencia[]=[];
 
-  constructor(private datos:DatosService) { }
+  constructor(private portfolio:PortfolioService) { }
 
   seleccionar(index:number){
     this.item = this.experienciaList[index];
   }
 
-  guardarItem(){
+  guardarExperiencia(){
     alert("Se ha guardado correctamente");
   }
-  eliminarItem(){
+  eliminarExperiencia(){
     alert("Se ha eliminado correctamente");
   }
 
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data =>{
-      this.experienciaList=data.experiencia;
+    this.portfolio.obtenerDatosExperiencia().subscribe(data =>{
+      this.experienciaList=data;
     });
   }
 

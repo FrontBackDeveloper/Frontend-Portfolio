@@ -1,16 +1,16 @@
 <div class="container-fluid">
-    <div class="fotoPerfil"><img [src]="infoPersonal.acercade.fotoperfil" alt=""></div>
+    <div class="fotoPerfil"><img [src]="infoPersonal.fotoperfil" alt=""></div>
     <div class="card">
         <h4>Informacion Personal</h4>
         <ul>
-            <li>{{"Nombre: " + infoPersonal.acercade.nombrecompleto}}</li>
-            <li>{{"Edad: " + infoPersonal.acercade.edad}}</li>
-            <li>{{"Puesto: " + infoPersonal.acercade.puesto}}</li>
-            <li>{{"Ciudad: " + infoPersonal.acercade.ciudad}}</li>
-            <li>{{"Pais: " + infoPersonal.acercade.pais}}</li>
-            <li>{{"Telefono: " + infoPersonal.acercade.telefono}}</li>
-            <li>{{"Correo electrónico: " + infoPersonal.acercade.email}}</li>
-            <li>{{"Github: " + infoPersonal.acercade.github}}</li>
+            <li>{{"Nombre: " + infoPersonal.nombrecompleto}}</li>
+            <li>{{"Edad: " + infoPersonal.edad}}</li>
+            <li>{{"Puesto: " + infoPersonal.puesto}}</li>
+            <li>{{"Ciudad: " + infoPersonal.ciudad}}</li>
+            <li>{{"Pais: " + infoPersonal.pais}}</li>
+            <li>{{"Telefono: " + infoPersonal.telefono}}</li>
+            <li>{{"Correo electrónico: " + infoPersonal.email}}</li>
+            <li>{{"Github: " + infoPersonal.github}}</li>
             <li>{{"Linkedin: " + infoPersonal.acercade.linkedin}}</li>
             <li>{{"Youtube: "+ infoPersonal.acercade.youtube}}</li>
         </ul>
@@ -23,7 +23,7 @@
                     {{"Título: " + educacion.titulo}} <br>
                     {{"Institución: " + educacion.institucion}} <br>
                     {{"Lugar: " + educacion.lugar}} <br>
-                    {{"Período: " + educacion.Fecha}} <br>
+                    {{"Período: " + educacion.fecha}} <br>
                     <hr>
                
             </li>
@@ -35,10 +35,20 @@
         <ul>
             <li *ngFor="let experiencia of experienciaList">
                 
-                    {{"Título: " + experiencia.titulo}} <br>
-                    {{"Tipo: " + experiencia.tipo}} <br>
-                    {{"Herramientas: " + experiencia.herramientas}} <br>
-                    {{"Estado: " + experiencia.creado}} <br>
+                    {{"Puesto: " + experiencia.puesto}} <br>
+                    {{"Lugar: " + experiencia.lugar}} <br>
+                    {{"Desde: " + experiencia.desde + "Hasta: " + experiencia.hasta}} <br>
+                    <hr>    
+            </li>
+        </ul>
+        <h4>Logros</h4>
+        <ul>
+            <li *ngFor="let logros of logrosList">
+                
+                    {{"Titulo: " + logros.titulo}} <br>
+                    {{"institución: " + logros.institucion}} <br>
+                    {{"Lugar: " + logros.lugar}} <br>
+                    {{"Fecha: " + logros.fecha}} <br>
                     <hr>    
             </li>
         </ul>

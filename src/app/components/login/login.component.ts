@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router'
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
@@ -9,17 +8,46 @@ import { AuthService } from 'src/app/servicios/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent implements OnInit {
+  //usuario: string = "";
+  //password: string = "";
 
-  
+  loginError: Boolean = false;
+  form: FormGroup;
 
-  constructor() { }
-
-  guardarPerfil(){
-    alert("Su perfil se ha guardado correctamente")
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+    ) {
+      this.form = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]]
+      })
+     }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault;
+    
+    this.authService.login(this.form.value).subscribe(
+      (response: Boolean) => {
+        if (response)
+          this.router.navigate(['/main']);
+        else
+          this.loginError = true;
+      }
+    )
+      
+  }
+
+  get Email() {
+    return this.form.get('email');
+  }
+
+  get Password() {
+    return this.form.get('password');
   }
 }

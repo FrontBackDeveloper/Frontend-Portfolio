@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,17 +7,17 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  infoPersonalList:any;
-  constructor(private datos:DatosService) { }
+  infoPersonal:any;
+  constructor(private portfolio:PortfolioService) { }
 
   descargarCV(){
     alert("Se ha descargado correctamente")
   }
 
   ngOnInit(): void {
-   this.datos.obtenerDatos().subscribe(data =>{
+   this.portfolio.obtenerDatosAcercade().subscribe(data =>{
   
-    this.infoPersonalList=data;
+    this.infoPersonal=data;
    });
   }
 }

@@ -12,16 +12,16 @@
 					<div class="card">
 								
 							  <div class="card-header">
-								<h5>{{experiencia.titulo}}</h5>
+								<h5>{{experiencia.puesto}}</h5>
 							  </div>
 						  <div class="card-body">
 							<div class="img">
 								<img [src]="experiencia.imagen" alt="">
 							</div>
-								 <p class="card-text"><strong>Tipo: </strong>{{experiencia.tipo}}</p>
-								 <p class="card-text"><strong>Creado: </strong>{{experiencia.creado}}</p>
-								 <p class="card-text"><strong>Herramientas: </strong>{{experiencia.herramientas}}</p>
-								 <p class="card-text"><strong>Estado: </strong>{{experiencia.estado}}</p>
+								 <p class="card-text"><strong>Puesto: </strong>{{experiencia.puesto}}</p>
+								 <p class="card-text"><strong>Lugar: </strong>{{experiencia.lugar}}</p>
+								 <p class="card-text"><strong>Desde: </strong>{{experiencia.desde}}</p>
+								 <p class="card-text"><strong>Hasta: </strong>{{experiencia.hasta}}</p>
 								 <a href="https://github.com/FrontBackDeveloper/proyecto-web-geriatrico.git" class="btn btn-primary" target="_blank">Ver mas</a>
 								 
 								 <a  href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-exp"  title="eliminar"></a>																			
@@ -42,20 +42,20 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
-			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.tipo"><br>
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control"[(ngModel)]="item.creado"><br>
-			<label for="fecha">Período</label>
-			<input  type="text" class="form-control" [(ngModel)]="item.herramientas"><br>
+			<label for="titulo">Puesto: </label>
+			<input  type="text" class="form-control" [(ngModel)]="item.puesto"><br>
+			<label for="institucion">Lugar: </label>
+			<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
+			<label for="lugar">Desde: </label>
+			<input  type="text" class="form-control"[(ngModel)]="item.desde"><br>
+			<label for="lugar">Hasta: </label>
+			<input  type="text" class="form-control"[(ngModel)]="item.hasta"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control"  [(ngModel)]="item.estado"><br>
+			<input  type="text" class="form-control"  [(ngModel)]="item.imagen"><br>
 			
 		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
+		<button type="button" class="btn btn-success" (click)="guardarExperiencia()">Guardar</button>
 		
 		</div>
 	</div>
@@ -70,7 +70,7 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="eliminarItem()">Eliminar</button>
+		<button type="button" class="btn btn-success" (click)="eliminarExperiencia()">Eliminar</button>
 
 		</div>
 	</div>
@@ -85,20 +85,20 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<label for="titulo">Título: </label>
+			<label for="titulo">Puesto: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="institucion">Institución: </label>
+			<label for="institucion">Lugar: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="lugar">Lugar: </label>
+			<label for="lugar">Desde: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="fecha">Período</label>
+			<label for="fecha">Hasta: </label>
 			<input  type="text" class="form-control"><br>
 			<label for="imagen">Imagen: </label>
 			<input  type="text" class="form-control"><br>
 			
 		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
+		<button type="button" class="btn btn-success" (click)="guardarExperiencia()">Guardar</button>
 		
 		</div>
 	</div>

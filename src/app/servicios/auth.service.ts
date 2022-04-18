@@ -1,31 +1,30 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { LoginDto } from '../data/LoginDto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public login(usuario:string , password:string) : Boolean{
-    if (usuario == "gustavo") {
-      localStorage.setItem("user","gustavo");
-    return true;
-   } else {
-     this.logout();
-     return false;
-   }
+  public login(credentials: LoginDto) : Observable<Boolean> {
+    return this.http.post<Boolean>("http://localhost:8080/login", credentials).pipe(
+      tap((response: Boolean) => {
+        if (response)
+          sessionStorage.setItem("user", "gustavobeltran");
+      })
+    );
   }
 
-   public logout(){
-     localStorage.removeItem("user");
-   }
+  public logout() {
+    sessionStorage.removeItem("user");
+  }
 
-   public isUserLogger(): Boolean {
-
-    return localStorage.getItem("user") !== null;
-   }
-  
+  public isUserLogged():boolean {
+    return sessionStorage.getItem("user") !== null;
+  }
 }

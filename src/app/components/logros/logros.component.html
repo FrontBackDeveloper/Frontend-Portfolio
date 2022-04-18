@@ -10,9 +10,9 @@
 					<div class="card" style="width: 18rem;">
 						<img [src]="logro.imagen" class="card-img-top" alt="Imagen de logros">
 						<div class="card-body">
-						  <h5 class="card-title">{{logro.tipo}}</h5>
-						  <p class="card-text">{{logro.titulo}}</p>
+						  <h5 class="card-title">{{logro.titulo}}</h5>
 						  <p class="card-text">{{logro.institucion}}</p>
+						  <p class="card-text">{{logro.lugar}}</p>
 						  <p class="card-text">{{logro.fecha}}</p>
 						  <a href="#" class="btn btn-primary">Ver mas</a>  
 						  <a href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-log" title="eliminar"></a>																			
@@ -33,17 +33,19 @@
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<label for="tipo">Tipo: </label>
-				<input  type="text" class="form-control" [(ngModel)]="item.tipo"><br>
 				<label for="titulo">Titulo: </label>
 				<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
 				<label for="institucion">Institución: </label>
 				<input  type="text" class="form-control" [(ngModel)]="item.institucion"><br>
+				<label for="lugar">Lugar: </label>
+				<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
 				<label for="fecha">Fecha</label>
 				<input  type="text" class="form-control" [(ngModel)]="item.fecha"><br>		
+				<label for="imagen">Imagen</label>
+				<input  type="text" class="form-control" [(ngModel)]="item.imagen"><br>		
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
+				<button type="button" class="btn btn-success" (click)="guardarLogros()">Guardar</button>
 				
 			</div>
 		</div>
@@ -58,7 +60,7 @@
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-footer">
-			<button type="button" class="btn btn-success" (click)="eliminarItem()">Eliminar</button>
+			<button type="button" class="btn btn-success" (click)="eliminarLogros()">Eliminar</button>
 	
 			</div>
 		</div>
@@ -74,17 +76,19 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<label for="tipo">Tipo: </label>
-			<input  type="text" class="form-control" ><br>
 			<label for="titulo">Titulo: </label>
 			<input  type="text" class="form-control" ><br>
 			<label for="institucion">Institución: </label>
 			<input  type="text" class="form-control" ><br>
-			<label for="fecha">Fecha</label>
-			<input  type="text" class="form-control" ><br>		
+			<label for="lugar">Lugar: </label>
+			<input  type="text" class="form-control" ><br>
+			<label for="fecha">Fecha: </label>
+			<input  type="text" class="form-control" ><br>	
+			<label for="imagen">Imagen: </label>
+			<input  type="file" class="form-control" ><br>		
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
+			<button type="button" class="btn btn-success" (click)="guardarLogros()">Guardar</button>
 			
 		</div>
 	</div>

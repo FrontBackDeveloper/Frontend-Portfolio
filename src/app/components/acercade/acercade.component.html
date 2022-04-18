@@ -1,30 +1,34 @@
 <div class="contenedor">
 		<div id="info">
-			<h3> A cerca de </h3>
+			<h3> Perfil </h3>
 				<div class="info">
 					<ul>
-						<li><strong>Nombre:</strong> {{infoPersonalList.nombrecompleto}}</li>
-						<li><strong>Edad:</strong> {{infoPersonalList.edad}}</li>
-						<li><strong>Puesto:</strong> {{infoPersonalList.puesto}}</li>
-						<li><strong>Titulo Secundario:</strong> {{infoPersonalList.titulosecundario}}</li>
-						<li><strong>Ciudad:</strong> {{infoPersonalList.ciudad}}</li>
-						<li><strong>Pais:</strong> {{infoPersonalList.pais}}</li>
-						<li><strong>Correo electrónico:</strong> {{infoPersonalList.email}}</li>
-						<li><strong>Telefono:</strong> {{infoPersonalList.telefono}}</li>
-						<li><strong>Hobby:</strong> {{infoPersonalList.hobby}}</li>
+						<li><strong>Nombre:</strong> {{infoPersonal.nombrecompleto}}</li>
+						<li><strong>Edad:</strong> {{infoPersonal.edad}}</li>
+						<li><strong>Ocupacion:</strong> {{infoPersonal.puesto}}</li>
+						<li><strong>Titulo:</strong> {{infoPersonal.titulo}}</li>
+						<li><strong>Ciudad:</strong> {{infoPersonal.ciudad}}</li>
+						<li><strong>Pais:</strong> {{infoPersonal.pais}}</li>
+						<li><strong>Correo electrónico:</strong> {{infoPersonal.email}}</li>
+						<li><strong>Telefono:</strong> {{infoPersonal.telefono}}</li>
+						<li><strong>Hobby:</strong> {{infoPersonal.hobby}}</li>
 						<hr>
 					</ul>
-					<a [href]="infoPersonalList.github" class="icon fa fa-github" target="_blank"></a>
-					<a [href]="infoPersonalList.linkedin" class="icon fa fa-linkedin" target="_blank"></a>
-					<a [href]="infoPersonalList.Youtube" class="icon fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
+					<div>
+						<h4>A cerca de</h4>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, doloremque. Amet optio dolorum, esse ad magni omnis ullam tempora dignissimos. Libero, amet. Eius vel cupiditate incidunt aliquam, maiores inventore laudantium?</p>
+					</div>
+					<a [href]="infoPersonal.github" class="icon fa fa-github" target="_blank"></a>
+					<a [href]="infoPersonal.linkedin" class="icon fa fa-linkedin" target="_blank"></a>
+					<a [href]="infoPersonal.Youtube" class="icon fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
 				</div>
 
 				<div class="info">		
 
-					    <img [src]="infoPersonalList.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
+					    <img [src]="infoPersonal.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
 				
 						<!-- Button trigger modal -->
-						<a  href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
+						<a href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
 			
 			<!-- Modal -->
 			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -37,28 +41,28 @@
 				
 					<div class="modal-body">
 						<label for="nombrecompleto">Nombre completo: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.nombrecompleto"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.nombrecompleto"><br>
 						<label for="edad">Edad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.edad"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.edad"><br>
 						<label for="puesto">Puesto Actual: </label>
-						<input  type="text" class="form-control"  [(ngModel)]="infoPersonalList.puesto"><br>
+						<input  type="text" class="form-control"  [(ngModel)]="infoPersonal.puesto"><br>
 						<label for="titulosecundario">Titulo Secundario</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.titulosecundario"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.titulo"><br>
 						<label for="ciudad">Ciudad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.ciudad"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.ciudad"><br>
 						<label for="pais">Pais:</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.pais"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.pais"><br>
 						<label for="email">Correo electrónico:</label>
-						<input type="text" class="form-control" [(ngModel)]="infoPersonalList.email"><br>
+						<input type="text" class="form-control" [(ngModel)]="infoPersonal.email"><br>
 						<label for="telefono">Telefono:</label>
-						<input type="text" class="form-control" [(ngModel)]="infoPersonalList.telefono"><br>
+						<input type="text" class="form-control" [(ngModel)]="infoPersonal.telefono"><br>
 						<label for="Hobby">Pasatiempo:</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonalList.hobby"><br>
+						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.hobby"><br>
 						<label for="fotoperfil">Foto de perfil</label>
-						<input  type="file" placeholder="subir foto de perfil" class="form-control" [(ngModel)]="infoPersonalList.fotoperfil">
+						<input  type="file" placeholder="subir foto de perfil" class="form-control" [(ngModel)]="infoPersonal.fotoperfil">
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success" (click)="guardarItem()">Guardar</button>
+						<button type="button" class="btn btn-success" (click)="guardarAcercade()">Guardar</button>
 						
 					</div>
 				</div>

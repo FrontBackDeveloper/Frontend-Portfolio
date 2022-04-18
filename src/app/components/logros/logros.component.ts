@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Logros } from 'src/app/data/Logros';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-logros',
@@ -10,24 +11,24 @@ import { DatosService } from 'src/app/servicios/datos.service';
 export class LogrosComponent implements OnInit {
 
 item:any=[];
-logrosList:any;
+logrosList:Logros[] = [];
 
-  constructor(private datos:DatosService) { }
+  constructor(private portfolioservice:PortfolioService) { }
 
   seleccionar(index:number){
     this.item = this.logrosList[index];
   }
 
-  guardarItem(){
+  guardarLogros(){
     alert("Se ha guardado correctamente");
   }
-  eliminarItem(){
+  eliminarLogros(){
     alert("Se ha eliminado correctamente");
   }
   
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data =>{
-      this.logrosList=data.logros;
+    this.portfolioservice.obtenerDatosLogros().subscribe(data =>{
+      this.logrosList=data;
     });
   }
 
