@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Personas } from 'src/app/data/Personas';
+import { Formacion } from 'src/app/data/Formacion';
+import { Experiencia } from 'src/app/data/Experiencia';
+import { Logros } from 'src/app/data/Logros';
 
 @Component({
   selector: 'app-cv',
@@ -8,18 +12,26 @@ import { DatosService } from 'src/app/servicios/datos.service';
 })
 export class CVComponent implements OnInit {
   infoPersonal:any;
-  formacionList:any;
-  experienciaList:any;
+  formacionList:Formacion[] = [];
+  experienciaList:Experiencia[] = [];
+  logrosList:Logros[] = [];
 
-  constructor(private datos:DatosService) { }
+  constructor(private portfolio:PortfolioService) { }
 
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data =>{
-      this.infoPersonal=data;
-      this.formacionList=data.formacion;
-      this.experienciaList=data.experiencia;
+    this.portfolio.obtenerDatosAcercade().subscribe(data =>{
+      this.infoPersonal =data;
+    });
+
+    this.portfolio.obtenerDatosFormacion().subscribe(data =>{
+      this.formacionList=data;
+    });
+    this.portfolio.obtenerDatosExperiencia().subscribe(data =>{
+      this.experienciaList=data;
+    });
+    this.portfolio.obtenerDatosLogros().subscribe(data =>{
+      this.logrosList=data;
     });
   }
-
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Formacion } from 'src/app/data/Formacion';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-formacion',
@@ -7,29 +8,27 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./formacion.component.css']
 })
 export class FormacionComponent implements OnInit {
-  formacionList:any;
+  formacionList:Formacion[] = [];
   item:any=[];
 
-  constructor(private datos:DatosService) { }
+  constructor(private portfolio:PortfolioService) { }
   
   seleccionar(index:number){
     this.item=this.formacionList[index];
   }
 
-  nuevoItem(){
-    alert("agregar nuevo Formacion");
-  }
-  guardarItem(){
+ 
+  guardarFormacion(){
     alert("Se ha guardado correctamente");
   }
 
-  eliminarItem(){
+  eliminarFormacion(){
     alert("Se ha eliminado correctamente");
   }
 
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data =>{
-      this.formacionList=data.formacion;
+    this.portfolio.obtenerDatosFormacion().subscribe(data =>{
+      this.formacionList=data;
     });
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Acercade } from 'src/app/data/Acercade';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-acercade',
@@ -9,22 +11,23 @@ import { DatosService } from 'src/app/servicios/datos.service';
 })
 export class AcercadeComponent implements OnInit {
 
-  infoPersonalList:any;
-  mostrarBotonEditar:any;
+  infoPersonal: any;
+  isUserLogged: Boolean = false;
   
-  constructor(private datos:DatosService, private authService:AuthService) { 
+  constructor(private portfolioservice:PortfolioService, 
+              private authService:AuthService) { 
    
   }
 
-  guardarItem(){
+  guardarAcercade(){
     alert("Se ha guardado correctamente");
   }
   
   ngOnInit(): void {
-    this.mostrarBotonEditar = this.authService.isUserLogged();
+    this.isUserLogged = this.authService.isUserLogged();
 
-    this.datos.obtenerDatos().subscribe(data =>{
-        this.infoPersonalList=data.acercade;
+    this.portfolioservice.obtenerDatosAcercade().subscribe(data =>{
+        this.infoPersonal=data;
         
     });
    
@@ -32,3 +35,4 @@ export class AcercadeComponent implements OnInit {
   }
 
 }
+
