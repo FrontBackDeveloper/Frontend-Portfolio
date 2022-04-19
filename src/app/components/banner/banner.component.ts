@@ -7,9 +7,9 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  infoPersonal:any;
+  infoPersonal: any = "";
   constructor(private portfolio:PortfolioService) { }
-
+ 
   descargarCV(){
     alert("Se ha descargado correctamente")
   }
@@ -18,6 +18,7 @@ export class BannerComponent implements OnInit {
    this.portfolio.obtenerDatosPersonas().subscribe(data =>{
   
     this.infoPersonal=data;
+    console.log(data);
    });
   }
 }

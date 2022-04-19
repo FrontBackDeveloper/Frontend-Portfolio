@@ -10,22 +10,19 @@
 				<div class="container">
 					
 					<div class="card">
-								
-							  <div class="card-header">
-								<h5>{{experiencia.puesto}}</h5>
+						  <div class="card-header">
+								<b>{{experiencia.puesto}}</b>
 							  </div>
 						  <div class="card-body">
 							<div class="img">
-								<img [src]="experiencia.imagen" alt="">
+								<img [src]="experiencia.imagen" alt="imagen de experiencia">
 							</div>
-								 <p class="card-text"><strong>Puesto: </strong>{{experiencia.puesto}}</p>
-								 <p class="card-text"><strong>Lugar: </strong>{{experiencia.lugar}}</p>
-								 <p class="card-text"><strong>Desde: </strong>{{experiencia.desde}}</p>
-								 <p class="card-text"><strong>Hasta: </strong>{{experiencia.hasta}}</p>
-								 <a href="https://github.com/FrontBackDeveloper/proyecto-web-geriatrico.git" class="btn btn-primary" target="_blank">Ver mas</a>
-								 
-								 <a  href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-exp"  title="eliminar"></a>																			
-								 <a  href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-experiencia" title="editar"></a>
+								 <p class="card-text"><b>Puesto: </b>{{experiencia.puesto}}</p>
+								 <p class="card-text"><b>Lugar: </b>{{experiencia.lugar}}</p>
+								 <p class="card-text"><b>Desde: </b>{{experiencia.desde}}</p>
+								 <p class="card-text"><b>Hasta: </b>{{experiencia.hasta}}</p>		 
+								 <a *ngIf="isUserLogged" href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-exp"  title="eliminar"></a>																			
+								 <a *ngIf="isUserLogged" href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-experiencia" title="editar"></a>
 									
 						  </div>
 					</div>
@@ -85,16 +82,16 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<label for="titulo">Puesto: </label>
+			<label for="puesto">Puesto: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="institucion">Lugar: </label>
+			<label for="lugar">Lugar: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="lugar">Desde: </label>
+			<label for="desde">Desde: </label>
 			<input  type="text" class="form-control"><br>
-			<label for="fecha">Hasta: </label>
+			<label for="hasta">Hasta: </label>
 			<input  type="text" class="form-control"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control"><br>
+			<input  type="file" class="form-control"><br>
 			
 		</div>
 		<div class="modal-footer">

@@ -12,8 +12,8 @@ import { Personas } from 'src/app/data/Personas';
 })
 export class AcercadeComponent implements OnInit {
 
-  infoPersonal: any;
-  infoPersonalAcercade: any;
+  infoPersonal: any = [];
+  infoPersonalAcercade: any = [];
   isUserLogged: Boolean = false;
   
   constructor(private portfolioservice:PortfolioService, 
@@ -24,7 +24,7 @@ export class AcercadeComponent implements OnInit {
   guardarAcercade(){
     alert("Se ha guardado correctamente");
   }
-  
+   
   ngOnInit(): void {
     this.isUserLogged = this.authService.isUserLogged();
 

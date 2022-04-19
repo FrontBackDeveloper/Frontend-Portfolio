@@ -18,6 +18,7 @@ export class EncabezadoComponent implements OnInit {
     this.isUserLogged = this.authservice.isUserLogged();
     this.portfolio.obtenerDatosRedesSociales().subscribe(data =>{
        this.datosEncabezado=data;
+       console.log(data);
     });
   }
   logout(): void {
