@@ -13,13 +13,13 @@ export class FormacionComponent implements OnInit {
   item:any=[];
   isUserLogged: Boolean = false;
 
-  constructor(private portfolio:PortfolioService, private authservice:AuthService) { }
+  constructor(private portfolio:PortfolioService,
+              private authservice:AuthService) { }
   
   seleccionar(index:number){
     this.item=this.formacionList[index];
   }
 
- 
   guardarFormacion(){
     alert("Se ha guardado correctamente");
   }
