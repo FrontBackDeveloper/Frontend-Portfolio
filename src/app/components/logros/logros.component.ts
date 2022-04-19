@@ -12,6 +12,7 @@ export class LogrosComponent implements OnInit {
 
 item:any=[];
 logrosList:Logros[] = [];
+isUserLogged: Boolean = false;
 
   constructor(private portfolioservice:PortfolioService) { }
 
@@ -29,6 +30,7 @@ logrosList:Logros[] = [];
   ngOnInit(): void {
     this.portfolioservice.obtenerDatosLogros().subscribe(data =>{
       this.logrosList=data;
+      console.log(data);  
     });
   }
 

@@ -12,6 +12,7 @@ export class ExperienciaComponent implements OnInit {
 
   item:any=[];
   experienciaList:Experiencia[]=[];
+  isUserLogged: Boolean = false;
 
   constructor(private portfolio:PortfolioService) { }
 
@@ -29,6 +30,7 @@ export class ExperienciaComponent implements OnInit {
   ngOnInit(): void {
     this.portfolio.obtenerDatosExperiencia().subscribe(data =>{
       this.experienciaList=data;
+      console.log(data);  
     });
   }
 
