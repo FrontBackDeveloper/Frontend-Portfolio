@@ -20,8 +20,8 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatosPersonas(): Observable<Personas[]> {
-    return this.http.get<any>("http://localhost:8080/personas/traer");
+  obtenerDatosPersonas(): Observable<Personas> {
+    return this.http.get<Personas>("http://localhost:8080/personas/traer");
   }
   obtenerDatosFormacion(): Observable<Formacion[]> {
     return this.http.get<any>("http://localhost:8080/formacion/traer");

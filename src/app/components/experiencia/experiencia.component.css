@@ -3,16 +3,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 10px auto;
+	margin: auto;
 	max-width: 1200px;
 	border-bottom: 1px solid #000;
+
 }
 li{
 list-style: none;
 }
 .img img{
-	width: 30%;
-	display: block;
-	float: left;
-	margin-right: 20px;
+width: 10%;
+display: block;
+float: left;
+margin-right: 20px;
 }

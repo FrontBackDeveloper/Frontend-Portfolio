@@ -6,9 +6,9 @@
      </div>
   
      <div class="menu">
-        <a [href]="datosEncabezado[0]" class="fa fa-github" target="_blank"></a>
-        <a [href]="datosEncabezado[1]" class="fa fa-linkedin" target="_blank"></a>
-        <a [href]="datosEncabezado[2]" class="fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
+        <a [href]="datosEncabezado" class="fa fa-github" target="_blank"></a>
+        <a [href]="datosEncabezado" class="fa fa-linkedin" target="_blank"></a>
+        <a [href]="datosEncabezado" class="fa fa-youtube" target="_blank" title="El mundito de Gustavo Canal de YouTube"></a>
         <a *ngIf="!isUserLogged" routerLink="/login" >Iniciar sesión</a>
         <a *ngIf="isUserLogged" routerLink="/logout" (click)="logout()">Cerrar Sesión</a>
      </div>
