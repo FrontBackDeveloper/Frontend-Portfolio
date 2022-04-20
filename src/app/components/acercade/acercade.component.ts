@@ -12,7 +12,7 @@ import { Personas } from 'src/app/data/Personas';
 })
 export class AcercadeComponent implements OnInit {
 
-  infoPersonal: any = [];
+  infoPersonal: any = [] ;
   infoPersonalAcercade: any = [];
   isUserLogged: Boolean = false;
   
@@ -31,9 +31,11 @@ export class AcercadeComponent implements OnInit {
     this.portfolioservice.obtenerDatosPersonas().subscribe(data =>{
         this.infoPersonal=data; 
         console.log(data);    
+        
     });
     this.portfolioservice.obtenerDatosAcercade().subscribe(data =>{
-      this.infoPersonalAcercade=data;    
+      this.infoPersonalAcercade=data;   
+     
       console.log(data);   
   });
    
