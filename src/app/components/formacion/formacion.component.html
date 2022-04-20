@@ -49,7 +49,7 @@
 			
 		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarFormacion()">Guardar</button>
+		<button type="button" class="btn btn-success" (click)="actualizarFormacion()">Guardar</button>
 
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="eliminarFormacion()">Eliminar</button>
+		<button type="submit" class="btn btn-success" (ngSubmit)="eliminarFormacion()">Eliminar</button>
 
 		</div>
 	</div>
@@ -72,6 +72,7 @@
 </div>
 <!--- modal nuevo-formacion-->
 <div class="modal fade" id="nuevo-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="guardarFormacion($event)">
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -80,21 +81,28 @@
 		</div>
 		<div class="modal-body">
 			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" ><br>
-			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" ><br>
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" ><br>
-			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" ><br>
-			<label for="imagen">Imagen: </label>
-			<input  type="file" class="form-control" ><br>
-			
-		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarFormacion()">Guardar</button>
+			<input  type="text" class="form-control" formControlName="titulo" required><br>
 
+			<label for="institucion">Institución: </label>
+			<input  type="text" class="form-control" formControlName="institucion" required><br>
+
+			<label for="lugar">Lugar: </label>
+			<input  type="text" class="form-control" formControlName="lugar" required><br>
+
+			<label for="fecha">Fecha: </label>
+			<input  type="text" class="form-control" formControlName="fecha" required=""><br>
+
+			<label for="imagen">Imagen: </label>
+			<input  type="file" class="form-control" formControlName="imagen"><br>
+			
+	
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success">Guardar</button>
+		
 		</div>
+	
 	</div>
+	
 	</div>
+
 </div>
