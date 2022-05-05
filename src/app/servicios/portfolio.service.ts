@@ -12,42 +12,86 @@ import { RedesSociales } from '../data/RedesSociales';
 import { Contacto } from '../data/Contacto';
 
 import { map } from 'rxjs/operators';
+import { LoginComponent } from '../components/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class PortfolioService {
 
   constructor(private http: HttpClient) { }
-
-  obtenerDatosPersonas(): Observable<Personas> {
-    return this.http.get<Personas>("http://localhost:8080/personas/traer");
+ 
+  // -------CRUD PERSONA------ //
+  obtenerDatosPersonas(): Observable<Personas[]> {
+    return this.http.get<any>("http://localhost:8080/personas/traer");
   }
-  
+
+  // -------CRUD ACERCA DE------ //
+  obtenerDatosAcercade(): Observable<Acercade[]> {
+    return this.http.get<any>("http://localhost:8080/acercade/traer");
+  }
+
+// -------CRUD FORMACION------ //
+
   obtenerDatosFormacion(): Observable<Formacion[]> {
     return this.http.get<any>("http://localhost:8080/formacion/traer");
   }
-  guardarDatosFormacion(formacion: Formacion): Observable<Formacion> {
-    return this.http.post<Formacion>("http://localhost:8080/formacion/crear" , formacion )
+  
+  guardarDatosFormacion(form: Formacion): Observable<Formacion> {
+    return this.http.post<Formacion>("http://localhost:8080/formacion/crear" , form );
   }
+
+  editarDatosFormacion(formacion: Formacion): Observable<Formacion> {
+    
+    return this.http.put<Formacion>("http://localhost:8080/formacion/editar", formacion);
+  }
+
+  borrarDatosFormacion(id: number): Observable<unknown> {
+  const url = `${"http://localhost:8080/formacion/borrar"}/${id}`; 
+  return this.http.delete(url);
+  }
+
+// -------CRUD EXPERIENCIA------ //
+
   obtenerDatosExperiencia(): Observable<Experiencia[]> {
     return this.http.get<any>("http://localhost:8080/experiencia/traer");
   }
+  guardarDatosExperiencia(form: Experiencia): Observable<Experiencia> {
+    return this.http.post<Experiencia>("http://localhost:8080/experiencia/crear" , form );
+  }
+
+  editarDatosExperiencia(experiencia: Experiencia): Observable<Experiencia> {
+    return this.http.put<Experiencia>("http://localhost:8080/experiencia/editar", experiencia);
+  }
+
+  borrarDatosExperiencia(id: number): Observable<unknown> {
+  const url = `${"http://localhost:8080/experiencia/borrar"}/${id}`; 
+  return this.http.delete(url);
+  }
+
+  // -------CRUD LOGROS------ //
   obtenerDatosLogros(): Observable<Logros[]> {
     return this.http.get<any>("http://localhost:8080/logros/traer");
   }
-  obtenerDatosAcercade(): Observable<Acercade> {
-    return this.http.get<any>("http://localhost:8080/acercade/traer");
-  }
+
+  // -------CRUD PROYECTOS------ //
   obtenerDatosProyectos(): Observable<Proyectos[]> {
     return this.http.get<any>("http://localhost:8080/proyectos/traer");
   }
+
+  // -------CRUD APTITUDES------ //
   obtenerDatosAptitudes(): Observable<Aptitudes[]> {
     return this.http.get<any>("http://localhost:8080/aptitudes/traer");
   }
+
+// -------CRUD REDES------ //
   obtenerDatosRedesSociales(): Observable<RedesSociales[]> {
     return this.http.get<any>("http://localhost:8080/redessociales/traer");
   }
+
+  // -------CRUD CONTACTO------ //
   obtenerDatosContacto(): Observable<Contacto[]> {
     return this.http.get<any>("http://localhost:8080/contacto/traer");
   }

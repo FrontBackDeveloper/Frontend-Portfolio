@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class EncabezadoComponent implements OnInit {
   isUserLogged: boolean = false;
-  datosEncabezado:RedesSociales [] = [];
+  datosEncabezado:RedesSociales[] = [];
   constructor(private portfolio:PortfolioService,
               private authservice:AuthService) { }
 
