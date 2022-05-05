@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Personas } from 'src/app/data/Personas';
+import { Acercade } from 'src/app/data/Acercade';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,36 +13,34 @@ import { Personas } from 'src/app/data/Personas';
   styleUrls: ['./acercade.component.css']
 })
 export class AcercadeComponent implements OnInit {
-
-  infoPersonal: any = [] ;
-  infoPersonalAcercade: any = [];
+  infoPersonal:Personas[] = [];
+  infoPersonalAcercade: any =[];
   isUserLogged: Boolean = false;
+  item:any=[];
   
-  constructor(private portfolioservice:PortfolioService, 
-              private authService:AuthService) { 
+  constructor(private portfolio:PortfolioService, 
+              private authservice:AuthService) { 
    
-  }
+              }
 
-  guardarAcercade(){
-    alert("Se ha guardado correctamente");
-  }
-   
+ 
   ngOnInit(): void {
-    this.isUserLogged = this.authService.isUserLogged();
-
-    this.portfolioservice.obtenerDatosPersonas().subscribe(data =>{
-        this.infoPersonal=data; 
-        console.log(data);    
-        
+    this.isUserLogged = this.authservice.isUserLogged();
+    this.portfolio.obtenerDatosPersonas().subscribe(data =>{
+      this.infoPersonal=data;
+      console.log(data);
     });
-    this.portfolioservice.obtenerDatosAcercade().subscribe(data =>{
+    this.portfolio.obtenerDatosAcercade().subscribe(data =>{
       this.infoPersonalAcercade=data;   
-     
       console.log(data);   
   });
    
-
   }
+  guardarAcercade(){
+    alert("Se ha guardado correctamente");
+  }
+ 
+   
 
 }
 

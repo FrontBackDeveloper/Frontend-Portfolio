@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
 import { Experiencia } from 'src/app/data/Experiencia';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class ExperienciaComponent implements OnInit {
   experienciaList:Experiencia[]=[];
   isUserLogged: Boolean = false;
 
-  constructor(private portfolio:PortfolioService) { }
+  constructor(private portfolio:PortfolioService,
+              private authservice:AuthService) { }
 
   seleccionar(index:number){
     this.item = this.experienciaList[index];
@@ -28,6 +30,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isUserLogged = this.authservice.isUserLogged();
     this.portfolio.obtenerDatosExperiencia().subscribe(data =>{
       this.experienciaList=data;
       console.log(data);  

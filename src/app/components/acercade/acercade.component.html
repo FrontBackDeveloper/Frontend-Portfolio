@@ -1,32 +1,37 @@
 <div class="contenedor">
 		<div id="info">
-			<h3> Perfil </h3>
+			<div class="col-1"><h3>Perfil</h3></div>
+			<div class="col-10"></div>
+			
 				<div class="info">
-					<ul>
-						<li><strong>Nombre:</strong> {{infoPersonal.nombrecompleto}}</li>
-						<li><strong>Edad:</strong> {{infoPersonal.edad}}</li>
-						<li><strong>Ocupacion:</strong> {{infoPersonal.puesto}}</li>
-						<li><strong>Titulo:</strong> {{infoPersonal.titulo}}</li>
-						<li><strong>Ciudad:</strong> {{infoPersonal.ciudad}}</li>
-						<li><strong>Pais:</strong> {{infoPersonal.pais}}</li>
-						<li><strong>Correo electrónico:</strong> {{infoPersonal.email}}</li>
-						<li><strong>Telefono:</strong> {{infoPersonal.telefono}}</li>
-						<li><strong>Hobby:</strong> {{infoPersonal.hobby}}</li>
+					<ul *ngFor="let info of infoPersonal, let i=index">
+						<li><strong>Nombre:</strong> {{info.nombrecompleto}}</li>
+						<li><strong>Edad:</strong> {{info.edad}}</li>
+						<li><strong>Ocupacion:</strong> {{info.puesto}}</li>
+						<li><strong>Titulo:</strong> {{info.titulo}}</li>
+						<li><strong>Ciudad:</strong> {{info.ciudad}}</li>
+						<li><strong>Pais:</strong> {{info.pais}}</li>
+						<li><strong>Correo electrónico:</strong> {{info.email}}</li>
+						<li><strong>Telefono:</strong> {{info.telefono}}</li>
+						<li><strong>Hobby:</strong> {{info.hobby}}</li>
 						<hr> 
-					</ul>
-					<div>
-						<h4>A cerca de</h4>
-						<p>{{infoPersonalAcercade.descripcion}}</p>
-					</div>
-					
+					</ul> 	
 				</div>
 
 				<div class="info">		
-
-					    <img [src]="infoPersonal.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
+					    <img *ngFor="let img of infoPersonal" [src]="img.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
 				
 						<!-- Button trigger modal -->
 						<a  *ngIf="isUserLogged" href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
+				</div>
+<div class="contenedor">
+	<div class="col-1"><h4>Acerca de</h4></div>
+	<div class="col-10"></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-edit"  data-bs-toggle="modal" data-bs-target="#nuevo-formacion" title="editar"></a></div>
+	
+		<p class="container-fluid info" *ngFor="let acd of infoPersonalAcercade">{{acd.descripcion}}</p>
+		
+	</div>
 			
 			<!-- Modal -->
 			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -39,25 +44,25 @@
 				
 					<div class="modal-body">
 						<label for="nombrecompleto">Nombre completo: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.nombrecompleto"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.nombrecompleto"><br>
 						<label for="edad">Edad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.edad"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.edad"><br>
 						<label for="puesto">Puesto Actual: </label>
-						<input  type="text" class="form-control"  [(ngModel)]="infoPersonal.puesto"><br>
+						<input  type="text" class="form-control"  [(ngModel)]="item.puesto"><br>
 						<label for="titulosecundario">Titulo Secundario</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.titulo"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
 						<label for="ciudad">Ciudad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.ciudad"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.ciudad"><br>
 						<label for="pais">Pais:</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.pais"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.pais"><br>
 						<label for="email">Correo electrónico:</label>
-						<input type="text" class="form-control" [(ngModel)]="infoPersonal.email"><br>
+						<input type="text" class="form-control" [(ngModel)]="item.email"><br>
 						<label for="telefono">Telefono:</label>
-						<input type="text" class="form-control" [(ngModel)]="infoPersonal.telefono"><br>
+						<input type="text" class="form-control" [(ngModel)]="item.telefono"><br>
 						<label for="Hobby">Pasatiempo:</label>
-						<input  type="text" class="form-control" [(ngModel)]="infoPersonal.hobby"><br>
+						<input  type="text" class="form-control" [(ngModel)]="item.hobby"><br>
 						<label for="fotoperfil">Foto de perfil</label>
-						<input  type="file" placeholder="subir foto de perfil" class="form-control" [(ngModel)]="infoPersonal.fotoperfil">
+						<input  type="file" placeholder="subir foto de perfil" class="form-control" [(ngModel)]="item.fotoperfil">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-success" (click)="guardarAcercade()">Guardar</button>

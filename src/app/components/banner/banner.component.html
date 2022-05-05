@@ -1,7 +1,9 @@
 <div class="titulo">
 	<h1>Hola,</h1>
-	<h2>Soy {{infoPersonal.nombrecompleto}}</h2>
-	<p>{{infoPersonal.puesto}}</p><br>
+	<div *ngFor="let info of infoPersonal">
+	<h2>Soy {{info.nombrecompleto}}</h2>
+	<p>{{info.puesto}}</p><br>
+    </div>
 	<div>
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalcontacto" data-bs-whatever="@mdo">Contáctame</button>
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCV">

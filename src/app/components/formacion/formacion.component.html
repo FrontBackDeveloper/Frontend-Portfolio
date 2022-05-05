@@ -1,7 +1,7 @@
 <div class="contenedor">
 	<div class="col-1"><h4>Formación</h4></div>
 	<div class="col-10"></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-pencil"  data-bs-toggle="modal" data-bs-target="#nuevo-formacion" title="nuevo"></a></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaFormacion()" data-bs-toggle="modal" data-bs-target="#guardar-formacion" title="nuevo"></a></div>
 	<div class="container-fluid">
 		<ul>
 			<li *ngFor="let formacion of formacionList , let i=index">
@@ -17,9 +17,8 @@
 										<p class="card-text"><b>Institución: </b>{{formacion.institucion}}</p>
 										<p class="card-text"><b>Lugar: </b>{{formacion.lugar}}</p>
 										<p class="card-text"><b>Fecha: </b>{{formacion.fecha}}</p>
-										<a *ngIf="isUserLogged" href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar"  title="eliminar"></a>																			
-										<a *ngIf="isUserLogged" href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-formacion" title="editar"></a>
-									
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="eliminar"></a>																			
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-formacion" title="editar"></a>
 							</div>
 					</div>
 				</div>
@@ -27,78 +26,63 @@
 		</ul>
 	</div>
 </div>
+
+<!--- modal guardar-formacion-->
+<div class="modal fade" id="guardar-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="guardar-formacion">Formación</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
+			<label for="titulo">Título: </label>
+			<input  type="text" class="form-control" formControlName="titulo" ><br>
+			<label for="institucion">Institución: </label>
+			<input  type="text" class="form-control" formControlName="institucion"><br>
+			<label for="lugar">Lugar: </label>
+			<input  type="text" class="form-control" formControlName="lugar"><br>
+			<label for="fecha">Fecha: </label>
+			<input  type="text" class="form-control" formControlName="fecha"><br>
+			<label for="imagen">Imagen: </label>
+			<input  type="text" class="form-control" formControlName="imagen"><br>
+			
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+		</div>
+	
+	</div>
+	
+	</div>
+
+</div>
+
 <!--- modal editar-formacion-->
 <div class="modal fade" id="editar-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Editar Formación</h5>
+		<h5 class="modal-title" id="editar-formacion">Editar Formación</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
 			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
+			<input  type="text" class="form-control" formControlName="titulo" ><br>
 			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.institucion"><br>
+			<input  type="text" class="form-control" formControlName="institucion"><br>
 			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
+			<input  type="text" class="form-control" formControlName="lugar"><br>
 			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.fecha"><br>
+			<input  type="text" class="form-control" formControlName="fecha"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.imagen"><br>
+			<input  type="text" class="form-control" formControlName="imagen"><br>
 			
-		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="actualizarFormacion()">Guardar</button>
-
-		</div>
-	</div>
-	</div>
-</div>
-<!--- modal confirma-borrar-->
-<div class="modal fade" id="confirma-borrar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Esta seguro de eliminar este registro?</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-footer">
-		<button type="submit" class="btn btn-success" (ngSubmit)="eliminarFormacion()">Eliminar</button>
-
-		</div>
-	</div>
-	</div>
-</div>
-<!--- modal nuevo-formacion-->
-<div class="modal fade" id="nuevo-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<form [formGroup]="form" (ngSubmit)="guardarFormacion($event)">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="nuevo-formacion">Agregar Formación</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" formControlName="titulo" required><br>
-
-			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" formControlName="institucion" required><br>
-
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" formControlName="lugar" required><br>
-
-			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" formControlName="fecha" required=""><br>
-
-			<label for="imagen">Imagen: </label>
-			<input  type="file" class="form-control" formControlName="imagen"><br>
-			
-	
-		<div class="modal-footer">
-		<button type="submit" class="btn btn-success">Guardar</button>
-		
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
+		<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
 		</div>
 	
 	</div>
