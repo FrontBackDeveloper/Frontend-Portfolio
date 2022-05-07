@@ -59,34 +59,3 @@
 
 </div>
 
-<!--- modal editar-formacion-->
-<div class="modal fade" id="editar-formacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<form [formGroup]="form" (ngSubmit)="onSubmit()">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="editar-formacion">Editar Formación</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<label for="titulo">Título: </label>
-			<input  type="text" class="form-control" formControlName="titulo" ><br>
-			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" formControlName="institucion"><br>
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" formControlName="lugar"><br>
-			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" formControlName="fecha"><br>
-			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control" formControlName="imagen"><br>
-			
-		<div class="modal-footer">
-		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
-		<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
-		</div>
-	
-	</div>
-	
-	</div>
-
-</div>

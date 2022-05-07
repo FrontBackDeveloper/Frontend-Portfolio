@@ -1,4 +1,5 @@
 export interface Experiencia {
+    id:number;
     puesto: string;
     lugar: string;
     desde: string;

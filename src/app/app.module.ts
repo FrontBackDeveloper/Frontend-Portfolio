@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CVComponent } from './components/cv/cv.component';
 import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
     LoginComponent,
     MainComponent,
     CVComponent,
-    AptitudesComponent
+    AptitudesComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,

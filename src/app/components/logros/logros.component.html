@@ -1,96 +1,64 @@
 <div class="contenedor">
 	<div class="col-1"><h4>Logros</h4></div>
 	<div class="col-10"></div>
-	<div class="col-1"><a *ngIf="isUserLogged" href="#"  class="editar fa fa-pencil" data-bs-toggle="modal" data-bs-target="#nuevo-logro" title="nuevo"></a></div>
-
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevoLogro()" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="nuevo Logro"></a></div>
 	<div class="container-fluid">
 		<ul>
-			<li *ngFor="let logro of logrosList ; let i=index">
+			<li *ngFor="let logro of logrosList , let i=index">
 				<div class="container">
-					<div class="card" style="width: 18rem;">
-						<img [src]="logro.imagen" class="card-img-top" alt="Imagen de logros">
-						<div class="card-body">
-						  <h5 class="card-title">{{logro.titulo}}</h5>
-						  <p class="card-text">{{logro.institucion}}</p>
-						  <p class="card-text">{{logro.lugar}}</p>
-						  <p class="card-text">{{logro.fecha}}</p>
-						  <a href="#" class="btn btn-primary">Ver mas</a>  
-						  <a *ngIf="isUserLogged" href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-log" title="eliminar"></a>																			
-						  <a *ngIf="isUserLogged" href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-logros" title="editar"></a>
-						</div>
-				  </div>
+					<div class="card">
+	  					<div class="card-header">
+								<b>{{logro.titulo}}</b>
+	 					</div>
+							<div class="card-body">
+								<div class="img">
+									<img [src]="logro.imagen" alt="imagen de Logro">
+								</div>
+										<p class="card-text"><b>Institución: </b>{{logro.institucion}}</p>
+										<p class="card-text"><b>Lugar: </b>{{logro.lugar}}</p>
+										<p class="card-text"><b>Fecha: </b>{{logro.fecha}}</p>
+										<p class="card-text"><b>Url: </b><a [href]="logro.url" target="_blank">{{logro.url}}</a></p>
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar logro"></a>																			
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="Editar Logro"></a>
+							</div>
+					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
 </div>
-	<!-- Modal -->
-	<div class="modal fade" id="editar-logros" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h5 class="modal-title" id="editar-logros">Editar Logros</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<label for="titulo">Titulo: </label>
-				<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
-				<label for="institucion">Institución: </label>
-				<input  type="text" class="form-control" [(ngModel)]="item.institucion"><br>
-				<label for="lugar">Lugar: </label>
-				<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
-				<label for="fecha">Fecha</label>
-				<input  type="text" class="form-control" [(ngModel)]="item.fecha"><br>		
-				<label for="imagen">Imagen</label>
-				<input  type="text" class="form-control" [(ngModel)]="item.imagen"><br>		
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-success" (click)="guardarLogros()">Guardar</button>
-				
-			</div>
-		</div>
-		</div>
-	</div>
 
-	<div class="modal fade" id="confirma-borrar-log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h5 class="modal-title" id="staticBackdropLabel">Esta seguro de eliminar este registro?</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-success" (click)="eliminarLogros()">Eliminar</button>
-	
-			</div>
-		</div>
-		</div>
-	</div>
-
-<!-- Modal -->
-<div class="modal fade" id="nuevo-logro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!--- modal guardar-Logros-->
+<div class="modal fade" id="guardar-logros" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<h5 class="modal-title" id="nuevo-logro">Agregar Logros</h5>
+		<h5 class="modal-title" id="guardar-logros">Logros</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<label for="titulo">Titulo: </label>
-			<input  type="text" class="form-control" ><br>
+			<input type="hidden" name="id" formControlName="id">
+			<label for="titulo">Título: </label>
+			<input  type="text" class="form-control" formControlName="titulo" ><br>
 			<label for="institucion">Institución: </label>
-			<input  type="text" class="form-control" ><br>
+			<input  type="text" class="form-control" formControlName="institucion"><br>
 			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control" ><br>
+			<input  type="text" class="form-control" formControlName="lugar"><br>
 			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" ><br>	
+			<input  type="text" class="form-control" formControlName="fecha"><br>
+			<label for="url">Url: </label>
+			<input  type="text" class="form-control" formControlName="url"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="file" class="form-control" ><br>		
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-success" (click)="guardarLogros()">Guardar</button>
+			<input  type="text" class="form-control" formControlName="imagen"><br>
 			
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
 		</div>
+	
 	</div>
+	
 	</div>
+
 </div>
+

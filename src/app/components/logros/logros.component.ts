@@ -3,6 +3,8 @@ import { observable } from 'rxjs';
 import { Logros } from 'src/app/data/Logros';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logros',
@@ -10,31 +12,101 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./logros.component.css']
 })
 export class LogrosComponent implements OnInit {
-
-item:any=[];
-logrosList:Logros[] = [];
-isUserLogged: Boolean = false;
-
-  constructor(private portfolioservice:PortfolioService,
-              private authservice: AuthService) { }
-
-  seleccionar(index:number){
-    this.item = this.logrosList[index];
-  }
-
-  guardarLogros(){
-    alert("Se ha guardado correctamente");
-  }
-  eliminarLogros(){
-    alert("Se ha eliminado correctamente");
-  }
+  logrosList:Logros[] = [];
+  item:any=[];
+  isUserLogged: Boolean = false;
+  form: FormGroup;  
   
-  ngOnInit(): void {
-    this.isUserLogged = this.authservice.isUserLogged();
-    this.portfolioservice.obtenerDatosLogros().subscribe(data =>{
-      this.logrosList=data;
-      console.log(data);  
-    });
-  }
 
-}
+  constructor(private portfolio:PortfolioService,
+              private authservice:AuthService,
+              private router: Router,
+              private formBuilder: FormBuilder) {
+                this.form = this.formBuilder.group({
+                  id: [''],
+                  titulo: ['', [Validators.required, Validators.maxLength(45)]],
+                  institucion: ['', [Validators.required, Validators.maxLength(45)]],
+                  lugar: ['', [Validators.required, Validators.maxLength(45)]],
+                  fecha: ['', [Validators.required, Validators.maxLength(20)]],
+                  url: ['', [Validators.maxLength(40)]],
+                  imagen: ['', [Validators.maxLength(45)]]
+                });
+               }
+
+               ngOnInit(): void {
+                this.isUserLogged = this.authservice.isUserLogged();
+                this.reloadData();
+              }
+
+              private reloadData() {
+                this.portfolio.obtenerDatosLogros().subscribe(
+                  (data) => {
+                    this.logrosList = data;
+                  }
+                );
+              }
+              private clearForm() {
+                this.form.setValue({
+                  id: '',
+                  titulo: '',
+                  institucion: '',
+                  lugar: '',
+                  fecha: '',
+                  url: '',
+                  imagen: ''
+                })
+              }
+            
+              private loadForm(logros: Logros) {
+                this.form.setValue({
+                  id: logros.id,
+                  titulo: logros.titulo,
+                  institucion: logros.institucion,
+                  lugar: logros.lugar,
+                  fecha: logros.fecha,
+                  url: logros.url,
+                  imagen: logros.imagen
+                })
+              }
+
+              onSubmit() {
+                let logros: Logros = this.form.value;
+                if (this.form.get('id')?.value == '') {
+                  this.portfolio.guardarDatosLogros(logros).subscribe(
+                    (newLogro: Logros) => {
+                      this.logrosList.push(newLogro);
+                    }
+                  );
+                } else {
+                  console.log(logros);
+                  this.portfolio.editarDatosLogros(logros).subscribe(
+                    () => {
+                            this.reloadData();
+                     }
+                  )
+                }
+              }
+             
+            
+              nuevoLogro() {
+                this.clearForm();
+              }
+            
+              seleccionarYEditar(index: number) {
+                let logros: Logros = this.logrosList[index];
+                this.loadForm(logros);
+              }
+            
+              seleccionarYBorrar(index: number) {
+                let logros: Logros = this.logrosList[index];
+                if (confirm("¿Está seguro que desea borrar el logro seleccionado?")) {
+                  this.portfolio.borrarDatosLogros(logros.id).subscribe(
+                    () => {
+                      this.reloadData();
+                    }
+                  )
+                }
+              }
+            
+            }
+            
