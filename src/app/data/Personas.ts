@@ -1,4 +1,5 @@
 export interface Personas {
+    id:number;
     nombrecompleto: string;
     edad: number;
     puesto: string;

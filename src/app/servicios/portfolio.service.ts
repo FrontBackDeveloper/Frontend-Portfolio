@@ -75,10 +75,34 @@ export class PortfolioService {
   obtenerDatosLogros(): Observable<Logros[]> {
     return this.http.get<any>("http://localhost:8080/logros/traer");
   }
+  guardarDatosLogros(form: Logros): Observable<Logros> {
+    return this.http.post<Logros>("http://localhost:8080/logros/crear" , form );
+  }
+
+  editarDatosLogros(logros: Logros): Observable<Logros> {
+    return this.http.put<Logros>("http://localhost:8080/logros/editar", logros);
+  }
+
+  borrarDatosLogros(id: number): Observable<unknown> {
+    const url = `${"http://localhost:8080/logros/borrar"}/${id}`; 
+  return this.http.delete(url);
+  }
 
   // -------CRUD PROYECTOS------ //
   obtenerDatosProyectos(): Observable<Proyectos[]> {
     return this.http.get<any>("http://localhost:8080/proyectos/traer");
+  }
+  guardarDatosProyectos(form: Proyectos): Observable<Proyectos> {
+    return this.http.post<Proyectos>("http://localhost:8080/proyectos/crear" , form );
+  }
+
+  editarDatosProyectos(proyectos: Proyectos): Observable<Proyectos> {
+    return this.http.put<Proyectos>("http://localhost:8080/proyectos/editar", proyectos);
+  }
+
+  borrarDatosProyectos(id: number): Observable<unknown> {
+    const url = `${"http://localhost:8080/proyectos/borrar"}/${id}`; 
+  return this.http.delete(url);
   }
 
   // -------CRUD APTITUDES------ //

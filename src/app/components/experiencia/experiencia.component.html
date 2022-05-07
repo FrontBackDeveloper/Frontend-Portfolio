@@ -1,103 +1,63 @@
+
 <div class="contenedor">
 	<div class="col-1"><h4>Experiencia</h4></div>
 	<div class="col-10"></div>
-	<div class="col-1"><a *ngIf="isUserLogged" href="#"  class="editar fa fa-pencil" data-bs-toggle="modal" data-bs-target="#nuevo-experiencia" title="nuevo"></a></div>
-	
-	
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaExperiencia()" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="nuevo"></a></div>
 	<div class="container-fluid">
 		<ul>
-			<li *ngFor="let experiencia of experienciaList ; let i=index">
+			<li *ngFor="let experiencia of experienciaList , let i=index">
 				<div class="container">
-					
 					<div class="card">
-						  <div class="card-header">
+	  					<div class="card-header">
 								<b>{{experiencia.puesto}}</b>
-							  </div>
-						  <div class="card-body">
-							<div class="img">
-								<img [src]="experiencia.imagen" alt="imagen de experiencia">
+	 					</div>
+							<div class="card-body">
+								<div class="img">
+									<img [src]="experiencia.imagen" alt="logo de institución">
+								</div>
+										<p class="card-text"><b>Lugar: </b>{{experiencia.lugar}}</p>
+										<p class="card-text"><b>Desde: </b>{{experiencia.desde}}</p>
+										<p class="card-text"><b>Desde: </b>{{experiencia.hasta}}</p>
+
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="eliminar"></a>																			
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="editar"></a>
 							</div>
-								 <p class="card-text"><b>Puesto: </b>{{experiencia.puesto}}</p>
-								 <p class="card-text"><b>Lugar: </b>{{experiencia.lugar}}</p>
-								 <p class="card-text"><b>Desde: </b>{{experiencia.desde}}</p>
-								 <p class="card-text"><b>Hasta: </b>{{experiencia.hasta}}</p>		 
-								 <a *ngIf="isUserLogged" href="#" class="editar fa fa-trash" data-bs-toggle="modal" data-bs-target="#confirma-borrar-exp"  title="eliminar"></a>																			
-								 <a *ngIf="isUserLogged" href="#" (click)="seleccionar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#editar-experiencia" title="editar"></a>
-									
-						  </div>
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
 </div>
-<div class="modal fade" id="editar-experiencia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+<!--- modal guardar-experiencia-->
+<div class="modal fade" id="guardar-experiencia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
 	<div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<h5 class="modal-title" id="editar-experiencia">Editar Experiencia</h5>
+		<h5 class="modal-title" id="guardar-experiencia">Experiencia</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
 			<label for="titulo">Puesto: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.puesto"><br>
+			<input  type="text" class="form-control" formControlName="puesto" ><br>
 			<label for="institucion">Lugar: </label>
-			<input  type="text" class="form-control" [(ngModel)]="item.lugar"><br>
+			<input  type="text" class="form-control" formControlName="lugar"><br>
 			<label for="lugar">Desde: </label>
-			<input  type="text" class="form-control"[(ngModel)]="item.desde"><br>
-			<label for="lugar">Hasta: </label>
-			<input  type="text" class="form-control"[(ngModel)]="item.hasta"><br>
+			<input  type="text" class="form-control" formControlName="desde"><br>
+			<label for="fecha">Hasta: </label>
+			<input  type="text" class="form-control" formControlName="hasta"><br>
 			<label for="imagen">Imagen: </label>
-			<input  type="text" class="form-control"  [(ngModel)]="item.imagen"><br>
+			<input  type="text" class="form-control" formControlName="imagen"><br>
 			
-		</div>
 		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarExperiencia()">Guardar</button>
-		
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
 		</div>
+	
 	</div>
+	
 	</div>
+
 </div>
 
-<div class="modal fade" id="confirma-borrar-exp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="staticBackdropLabel">Esta seguro de eliminar este registro?</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="eliminarExperiencia()">Eliminar</button>
-
-		</div>
-	</div>
-	</div>
-</div>
-
-<div class="modal fade" id="nuevo-experiencia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="nuevo-experiencia">Agregar Experiencia</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<label for="puesto">Puesto: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="lugar">Lugar: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="desde">Desde: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="hasta">Hasta: </label>
-			<input  type="text" class="form-control"><br>
-			<label for="imagen">Imagen: </label>
-			<input  type="file" class="form-control"><br>
-			
-		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="guardarExperiencia()">Guardar</button>
-		
-		</div>
-	</div>
-	</div>
-</div>

@@ -3,24 +3,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 10px auto;
+	margin: auto;
 	max-width: 1200px;
 	border-bottom: 1px solid #000;
+
 }
 li{
 list-style: none;
+}
+.img img{
+width: 15%;
+display: block;
 float: left;
-
-}
-.editar a{
-	text-decoration: none;
-	margin-right: 10px;
-}
- a:hover{
-	color: #283747;
-	cursor: pointer;
-}
-.icon{
-	font-size: 20px;
-	color: #000;
+margin-right: 20px;
 }
