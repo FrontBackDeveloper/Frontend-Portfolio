@@ -1,7 +1,6 @@
-export interface Aptitudes {
+export interface Habilidades {
     id:number;
     titulo: string;
-    tipo: string;
     nivel: string;
    
 }

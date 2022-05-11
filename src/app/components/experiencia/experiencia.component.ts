@@ -39,14 +39,14 @@ export class ExperienciaComponent implements OnInit {
                 this.reloadData();
               }
 
-              private reloadData() {
+              reloadData() {
                 this.portfolio.obtenerDatosExperiencia().subscribe(
                   (data) => {
                     this.experienciaList = data;
                   }
                 );
               }
-              private clearForm() {
+              clearForm() {
                 this.form.setValue({
                   id: '',
                   puesto: '',
@@ -57,7 +57,7 @@ export class ExperienciaComponent implements OnInit {
                 })
               }
             
-              private loadForm(experiencia: Experiencia) {
+              loadForm(experiencia: Experiencia) {
                 this.form.setValue({
                   id: experiencia.id,
                   puesto: experiencia.puesto,
@@ -74,6 +74,7 @@ export class ExperienciaComponent implements OnInit {
                   this.portfolio.guardarDatosExperiencia(experiencia).subscribe(
                     (newExperiencia: Experiencia) => {
                       this.experienciaList.push(newExperiencia);
+                      this.reloadData();
                     }
                   );
                 } else {

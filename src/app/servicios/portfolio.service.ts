@@ -7,12 +7,9 @@ import { Formacion } from '../data/Formacion';
 import { Experiencia } from '../data/Experiencia';
 import { Logros } from '../data/Logros';
 import { Proyectos } from '../data/Proyectos';
-import { Aptitudes } from '../data/Aptitudes';
 import { RedesSociales } from '../data/RedesSociales';
 import { Contacto } from '../data/Contacto';
-
-import { map } from 'rxjs/operators';
-import { LoginComponent } from '../components/login/login.component';
+import { Habilidades } from '../data/Habilitades';
 
 @Injectable({
   providedIn: 'root'
@@ -105,9 +102,23 @@ export class PortfolioService {
   return this.http.delete(url);
   }
 
-  // -------CRUD APTITUDES------ //
-  obtenerDatosAptitudes(): Observable<Aptitudes[]> {
+  // -------CRUD HABILIDADES------ //
+ 
+  obtenerDatosHabilidades(): Observable<Habilidades[]> {
     return this.http.get<any>("http://localhost:8080/aptitudes/traer");
+  }
+  
+  guardarDatosHabilidades(form: Habilidades): Observable<Habilidades> {
+    return this.http.post<Habilidades>("http://localhost:8080/aptitudes/crear" , form );
+  }
+
+  editarDatosHabilidades(habilidades: Habilidades): Observable<Habilidades> {
+    return this.http.put<Habilidades>("http://localhost:8080/aptitudes/editar", habilidades);
+  }
+
+  borrarDatosHabilidades(id: number): Observable<unknown> {
+  const url = `${"http://localhost:8080/aptitudes/borrar"}/${id}`; 
+  return this.http.delete(url);
   }
 
 // -------CRUD REDES------ //

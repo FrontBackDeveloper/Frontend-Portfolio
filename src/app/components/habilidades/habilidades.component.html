@@ -1,0 +1,53 @@
+<div class="contenedor">
+	<div class="col-1"><h4>Habilidades</h4></div>
+	<div class="col-10"></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaHabilidad()"
+                             data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="nuevo"></a></div>
+	<div class="container-fluid">
+		<ul>
+			<li *ngFor="let habilidad of habilidadesList , let i=index">
+                        <p>{{habilidad.titulo}}</p>
+                        <div class="container">
+                          <div class="skills nivel" [ngStyle]="{'width': habilidad.nivel} ">{{habilidad.nivel}}</div>
+                        </div><br>				
+								<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" 
+                                                            class="editar fa fa-trash"   title="eliminar habilidad"></a>																			
+								<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" 
+                                                            class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="editar habilidades"></a>
+							
+					
+				
+			</li>
+		</ul>
+	</div>
+</div>
+<!--- modal guardar-habilidades-->
+<div class="modal fade" id="guardar-habilidad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="guardar-habilidad">Habilidades</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
+			<label for="titulo">Título: </label>
+			<input type="text" class="form-control" formControlName="titulo"><br>
+            <label for="nivel">Nivel: </label>
+            <select formControlName="nivel" class="form-control">
+                <option [ngValue]="null" disabled>Elija un nivel</option>
+                <option *ngFor="let nivel of niveles" [ngValue]="nivel.id">{{nivel.name}}</option>
+            </select>
+			
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+		</div>
+	
+	</div>
+	
+	</div>
+
+</div>
+
+
