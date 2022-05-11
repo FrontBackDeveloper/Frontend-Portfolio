@@ -38,14 +38,14 @@ export class LogrosComponent implements OnInit {
                 this.reloadData();
               }
 
-              private reloadData() {
+              reloadData() {
                 this.portfolio.obtenerDatosLogros().subscribe(
                   (data) => {
                     this.logrosList = data;
                   }
                 );
               }
-              private clearForm() {
+              clearForm() {
                 this.form.setValue({
                   id: '',
                   titulo: '',
@@ -57,7 +57,7 @@ export class LogrosComponent implements OnInit {
                 })
               }
             
-              private loadForm(logros: Logros) {
+              loadForm(logros: Logros) {
                 this.form.setValue({
                   id: logros.id,
                   titulo: logros.titulo,
@@ -75,6 +75,7 @@ export class LogrosComponent implements OnInit {
                   this.portfolio.guardarDatosLogros(logros).subscribe(
                     (newLogro: Logros) => {
                       this.logrosList.push(newLogro);
+                      this.reloadData();
                     }
                   );
                 } else {

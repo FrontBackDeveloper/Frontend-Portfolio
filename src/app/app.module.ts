@@ -18,9 +18,10 @@ import { PortfolioService } from './servicios/portfolio.service';
 import { AuthService } from './servicios/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CVComponent } from './components/cv/cv.component';
-import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 
 
 @NgModule({
@@ -37,8 +38,8 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
     LoginComponent,
     MainComponent,
     CVComponent,
-    AptitudesComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    HabilidadesComponent
   ],
   imports: [
     BrowserModule,

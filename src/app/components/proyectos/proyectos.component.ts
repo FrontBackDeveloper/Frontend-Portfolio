@@ -41,14 +41,14 @@ export class ProyectosComponent implements OnInit {
                 this.reloadData();
               }
 
-              private reloadData() {
+              reloadData() {
                 this.portfolio.obtenerDatosProyectos().subscribe(
                   (data) => {
                     this.proyectosList = data;
                   }
                 );
               }
-              private clearForm() {
+              clearForm() {
                 this.form.setValue({
                   id: '',
                   titulo: '',
@@ -61,7 +61,7 @@ export class ProyectosComponent implements OnInit {
                 })
               }
             
-              private loadForm(proyecto: Proyectos) {
+              loadForm(proyecto: Proyectos) {
                 this.form.setValue({
                   id: proyecto.id,
                   titulo: proyecto.titulo,
@@ -80,6 +80,7 @@ export class ProyectosComponent implements OnInit {
                   this.portfolio.guardarDatosProyectos(proyecto).subscribe(
                     (newProyecto: Proyectos) => {
                       this.proyectosList.push(newProyecto);
+                      this.reloadData();
                     }
                   );
                 } else {

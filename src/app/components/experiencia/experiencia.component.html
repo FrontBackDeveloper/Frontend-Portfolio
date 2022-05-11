@@ -17,7 +17,7 @@
 								</div>
 										<p class="card-text"><b>Lugar: </b>{{experiencia.lugar}}</p>
 										<p class="card-text"><b>Desde: </b>{{experiencia.desde}}</p>
-										<p class="card-text"><b>Desde: </b>{{experiencia.hasta}}</p>
+										<p class="card-text"><b>Hasta: </b>{{experiencia.hasta}}</p>
 
 										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="eliminar"></a>																			
 										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="editar"></a>
