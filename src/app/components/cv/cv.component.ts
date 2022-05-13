@@ -11,7 +11,7 @@ import { Logros } from 'src/app/data/Logros';
   styleUrls: ['./cv.component.css']
 })
 export class CVComponent implements OnInit {
-  infoPersonal:any = [];
+  infoPersonal:Personas[] = [];
   formacionList:Formacion[] = [];
   experienciaList:Experiencia[] = [];
   logrosList:Logros[] = [];
@@ -19,7 +19,7 @@ export class CVComponent implements OnInit {
   constructor(private portfolio:PortfolioService) { }
 
   ngOnInit(): void {
-    this.portfolio.obtenerDatosAcercade().subscribe(data =>{
+    this.portfolio.obtenerDatosPersonas().subscribe(data =>{
       this.infoPersonal=data;
       console.log(data);
     });

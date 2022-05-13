@@ -6,10 +6,10 @@
      </div>
   
      <div class="menu">
-        <a *ngFor="let encabezado of datosEncabezado" [href]="encabezado.url" class="fa fa-{{encabezado.nombre}}" target="_blank" title="{{encabezado.nombre}}"></a>
-       
+        <a routerLink="/main">Home</a>
+        <a *ngIf="isUserLogged" routerLink="/bandejadeentrada">Correo</a>
         <a *ngIf="!isUserLogged" routerLink="/login" >Iniciar sesión</a>
-        <a *ngIf="isUserLogged"  routerLink="/logout" (click)="logout()">Cerrar Sesión</a>
+        <a *ngIf="isUserLogged"  routerLink="/main" (click)="logout()">Cerrar Sesión</a>
      </div>
 </div>
 

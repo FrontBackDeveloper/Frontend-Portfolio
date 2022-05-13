@@ -53,3 +53,9 @@
 .menu a{
   font-size: 20px;
 }
+
+li{
+  display: inline;
+  text-decoration: none;
+  float: left;
+}

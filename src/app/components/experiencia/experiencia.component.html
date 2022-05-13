@@ -2,25 +2,23 @@
 <div class="contenedor">
 	<div class="col-1"><h4>Experiencia</h4></div>
 	<div class="col-10"></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaExperiencia()" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="nuevo"></a></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaExperiencia()" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="Nueva experiencia"></a></div>
 	<div class="container-fluid">
 		<ul>
 			<li *ngFor="let experiencia of experienciaList , let i=index">
 				<div class="container">
 					<div class="card">
-	  					<div class="card-header">
-								<b>{{experiencia.puesto}}</b>
-	 					</div>
 							<div class="card-body">
 								<div class="img">
 									<img [src]="experiencia.imagen" alt="logo de institución">
 								</div>
+										<p class="card-text"><b>Puesto: </b>{{experiencia.puesto}}</p>
 										<p class="card-text"><b>Lugar: </b>{{experiencia.lugar}}</p>
 										<p class="card-text"><b>Desde: </b>{{experiencia.desde}}</p>
 										<p class="card-text"><b>Hasta: </b>{{experiencia.hasta}}</p>
 
-										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="eliminar"></a>																			
-										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="editar"></a>
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar experiencia"></a>																			
+										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-experiencia" title="Editar experiencia"></a>
 							</div>
 					</div>
 				</div>
@@ -45,9 +43,9 @@
 			<label for="institucion">Lugar: </label>
 			<input  type="text" class="form-control" formControlName="lugar"><br>
 			<label for="lugar">Desde: </label>
-			<input  type="text" class="form-control" formControlName="desde"><br>
+			<input  type="date" class="form-control" formControlName="desde"><br>
 			<label for="fecha">Hasta: </label>
-			<input  type="text" class="form-control" formControlName="hasta"><br>
+			<input  type="date" class="form-control" formControlName="hasta"><br>
 			<label for="imagen">Imagen: </label>
 			<input  type="text" class="form-control" formControlName="imagen"><br>
 			

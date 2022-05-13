@@ -4,72 +4,81 @@
 			<div class="col-10"></div>
 			
 				<div class="info">
+					
 					<ul *ngFor="let info of infoPersonal, let i=index">
-						<li><strong>Nombre:</strong> {{info.nombrecompleto}}</li>
-						<li><strong>Edad:</strong> {{info.edad}}</li>
-						<li><strong>Ocupacion:</strong> {{info.puesto}}</li>
-						<li><strong>Titulo:</strong> {{info.titulo}}</li>
-						<li><strong>Ciudad:</strong> {{info.ciudad}}</li>
-						<li><strong>Pais:</strong> {{info.pais}}</li>
-						<li><strong>Correo electrónico:</strong> {{info.email}}</li>
-						<li><strong>Telefono:</strong> {{info.telefono}}</li>
-						<li><strong>Hobby:</strong> {{info.hobby}}</li>
-						<hr> 
+						<li><b>Nombre:</b>{{info.nombrecompleto}}</li>
+						<li><b>Edad:</b>{{info.edad}}</li>
+						<li><b>Ocupación:</b>{{info.puesto}}</li>
+						<li><b>Título:</b>{{info.titulo}}</li>
+						<li><b>Ciudad:</b>{{info.ciudad}}</li>
+						<li><b>País:</b>{{info.pais}}</li>
+						<li><b>Correo electrónico:</b>{{info.email}}</li>
+						<li><b>Teléfono:</b>{{info.telefono}}</li>
+						<li><b>Hobby:</b>{{info.hobby}}</li>
+						<hr>
+						
+						<li><b>Acerca de mí...</b></li>
+						<li class="descripcion">{{info.descripcion}}</li>
+						<a  *ngIf="isUserLogged" href="#"(click)="seleccionarYEditar(i)" class="editar fa fa-pencil" 
+								data-bs-toggle="modal" data-bs-target="#nuevo-perfil" title="Editar perfil"></a>
 					</ul> 	
 				</div>
 
 				<div class="info">		
-					    <img *ngFor="let img of infoPersonal" [src]="img.fotoperfil" alt="imagen del perfil" title="imagen del perfil">
+					    <img *ngFor="let img of infoPersonal" [src]="img.fotoperfil" alt="imagen del perfil" title="Imagen de perfil">						
+						<div class="redes">
+							<ul>
+							   <li *ngFor="let redes of redesList , let i=index">
+								<a [href]="redes.url" class="fa fa-{{redes.nombre}}" target="_blank" title="{{redes.nombre}}"></a>
+							   </li>
+							   <a *ngIf="isUserLogged" href="#" (click)="editarRedesSociales()" class="editar fa fa-pencil" data-bs-toggle="modal" 
+							   									data-bs-target="#editar-redes" title="Editar Redes sociales"></a>
+							</ul>
+						 </div>
+					</div>
 				
-						<!-- Button trigger modal -->
-						<a  *ngIf="isUserLogged" href="#" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Editar Perfil"></a>
-				</div>
-<div class="contenedor">
-	<div class="col-1"><h4>Acerca de</h4></div>
-	<div class="col-10"></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-edit"  data-bs-toggle="modal" data-bs-target="#nuevo-formacion" title="editar"></a></div>
 	
-		<p class="container-fluid info" *ngFor="let acd of infoPersonalAcercade">{{acd.descripcion}}</p>
-		
+		</div>
 	</div>
-			
-			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-					<h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-				
-					<div class="modal-body">
-						<label for="nombrecompleto">Nombre completo: </label>
-						<input  type="text" class="form-control" [(ngModel)]="item.nombrecompleto"><br>
-						<label for="edad">Edad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="item.edad"><br>
-						<label for="puesto">Puesto Actual: </label>
-						<input  type="text" class="form-control"  [(ngModel)]="item.puesto"><br>
-						<label for="titulosecundario">Titulo Secundario</label>
-						<input  type="text" class="form-control" [(ngModel)]="item.titulo"><br>
-						<label for="ciudad">Ciudad: </label>
-						<input  type="text" class="form-control" [(ngModel)]="item.ciudad"><br>
-						<label for="pais">Pais:</label>
-						<input  type="text" class="form-control" [(ngModel)]="item.pais"><br>
-						<label for="email">Correo electrónico:</label>
-						<input type="text" class="form-control" [(ngModel)]="item.email"><br>
-						<label for="telefono">Telefono:</label>
-						<input type="text" class="form-control" [(ngModel)]="item.telefono"><br>
-						<label for="Hobby">Pasatiempo:</label>
-						<input  type="text" class="form-control" [(ngModel)]="item.hobby"><br>
-						<label for="fotoperfil">Foto de perfil</label>
-						<input  type="file" placeholder="subir foto de perfil" class="form-control" [(ngModel)]="item.fotoperfil">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-success" (click)="guardarAcercade()">Guardar</button>
-						
-					</div>
-				</div>
-				</div>
-			</div>
-				
-							
+
+<!--- modal nuevo-perfil-->
+<div class="modal fade" id="nuevo-perfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="nuevo-perfil">Editar perfil</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
+			<label for="nombrecompleto">Nombre Completo</label>
+			<input  type="text" class="form-control" formControlName="nombrecompleto"><br>
+			<label for="edad">Edad</label>
+			<input  type="text" class="form-control" formControlName="edad"><br>
+			<label for="puesto">Puesto</label>
+			<input  type="text" class="form-control" formControlName="puesto"><br>
+			<label for="titulo">Título</label>
+			<input  type="text" class="form-control" formControlName="titulo"><br>
+			<label for="ciudad">Ciudad</label>
+			<input  type="text" class="form-control" formControlName="ciudad"><br>
+			<label for="pais">País</label>
+			<input  type="text" class="form-control" formControlName="pais"><br>
+			<label for="email">Correo electrónico</label>
+			<input  type="text" class="form-control" formControlName="email"><br>
+			<label for="telefono">Teléfono</label>
+			<input  type="text" class="form-control" formControlName="telefono"><br>
+			<label for="hobby">Hobby</label>
+			<input  type="text" class="form-control" formControlName="hobby"><br>
+			<label for="descripcion">Descripción</label>
+			<textarea  type="text" class="form-control" formControlName="descripcion"></textarea>
+		
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
+		</div>
+	
+	</div>
+	
+	</div>
+
+</div>

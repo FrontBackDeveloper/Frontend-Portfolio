@@ -53,3 +53,106 @@
   .menu a{
     font-size: 20px;
   }
+
+  /* mis estilos para formularios y responsive */
+  *estilos de seccion formularios */
+.contacto{
+	margin: auto;
+	max-width: 1200px;
+	background: #000;
+}
+
+#contacto{
+	background-image: url(../assets/fondo-contacto.jpg);
+	width: 100%;
+	margin: 20px auto;
+	max-width: 1200px;
+}
+.contenedor-formularios{
+	width: 450px;
+	margin: 20px auto;
+	background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+
+input, textarea{
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 7px;
+	box-sizing: border-box;
+	font-size: 17px;
+	border:  none;
+}
+textarea {
+	min-height: 100px;
+	max-height: 200px;
+	max-width: 100%;
+}
+.tituloformulario{
+	color: #fff;
+	text-align: center;
+}
+.parrafoformulario{
+	color: #fff;
+}
+#boton {
+	background-color: #31384A;
+	color: #fff;
+	padding: 20px;
+	transition: 0.4s;
+}
+#boton:hover {
+	background: #34495E;
+	cursor: pointer;
+}
+.iconos{
+	display: none;
+}
+@media (max-width: 480px){
+	form{
+		width: 100%;
+	}
+	.link-repositorio{
+		display: none;
+	}
+	header .titulo h1{
+	font-size: 25px;
+	color: #ccc;
+	margin-left: 0px;
+  }
+  header .titulo h2{
+	font-size: 15px;
+	color: #fff;
+	margin-left: 0px;
+  }
+  header .titulo p{
+	font-size: 10px;
+	color: #ccc;
+	margin-left: 0;
+  }
+  .boton-header{
+	background-color: #31384A;
+	color: #fff;
+	padding: 5px 10px;
+	margin-left: 0px;
+	border-radius: 15px;
+  }
+  .iconos{
+	display: inline-block;
+	color: #fff;
+	font-size: 20px;
+	margin-left: 20px;
+  }
+  .menu ul li a{
+  	display: none;
+  }
+  .tarjeta-proyectos img{
+	width: 100%;
+	float: left;
+	margin: 10px;
+}
+}

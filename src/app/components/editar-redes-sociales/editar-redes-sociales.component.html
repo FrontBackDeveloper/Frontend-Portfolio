@@ -1,0 +1,54 @@
+<app-encabezado></app-encabezado>
+<div class="contenedor">
+	<div class="col-4"><h4>Editar Redes Sociales</h4></div>
+	<div class="col-7"></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaRed()"
+                 data-bs-toggle="modal" data-bs-target="#guardar-redsocial" title="Nueva Red Social"></a></div>
+	<div class="container-fluid">
+		<ul>
+			<li *ngFor="let redes of redesList , let i=index">
+				<div class="container">
+					<div class="card">
+	  					<div class="card-body">
+						<p class="card-text"><b>Nombre: </b>{{redes.nombre + " "}} <span class="icono fa fa-{{redes.nombre}}"> </span></p>
+						<p class="card-text"><b>Url: </b>{{redes.url}}</p>
+						<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar Red Social"></a>																			
+						<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-redsocial" title="Editar Red Social"></a>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!--- modal guardar-Red social-->
+<div class="modal fade" id="guardar-redsocial" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="guardar-redsocial">Redes sociales</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
+            <label for="nombre">Nombre: </label>
+            <select formControlName="nombre" class="form-control" aria-placeholder="Elija una opción">
+                <option [ngValue]="null" disabled>Elija un nnombre</option>
+                <option *ngFor="let red of redes" [ngValue]="red.name">{{red.name}}</option>
+            </select>
+			<label for="url">Url: </label>
+			<input  type="text" class="form-control" formControlName="url"><br>
+			
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+		</div>
+	
+	</div>
+	
+	</div>
+
+</div>
+
+

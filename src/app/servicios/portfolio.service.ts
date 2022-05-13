@@ -20,9 +20,15 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
  
-  // -------CRUD PERSONA------ //
+  // -------CRUD PERFIL------ //
+
   obtenerDatosPersonas(): Observable<Personas[]> {
     return this.http.get<any>("http://localhost:8080/personas/traer");
+  }
+
+  editarDatosPersonas(personas: Personas): Observable<Personas> {
+    
+    return this.http.put<Personas>("http://localhost:8080/personas/editar", personas);
   }
 
   // -------CRUD ACERCA DE------ //
@@ -122,14 +128,40 @@ export class PortfolioService {
   }
 
 // -------CRUD REDES------ //
-  obtenerDatosRedesSociales(): Observable<RedesSociales[]> {
-    return this.http.get<any>("http://localhost:8080/redessociales/traer");
-  }
+
+obtenerDatosRedesSociales(): Observable<RedesSociales[]> {
+  return this.http.get<any>("http://localhost:8080/redessociales/traer");
+}
+
+guardarDatosRedesSociales(form: RedesSociales): Observable<RedesSociales> {
+  return this.http.post<RedesSociales>("http://localhost:8080/redessociales/crear" , form );
+}
+
+editarDatosRedesSociales(redes: RedesSociales): Observable<RedesSociales> {
+  
+  return this.http.put<RedesSociales>("http://localhost:8080/redessociales/editar", redes);
+}
+
+borrarDatosRedesSociales(id: number): Observable<unknown> {
+const url = `${"http://localhost:8080/redessociales/borrar"}/${id}`; 
+return this.http.delete(url);
+}
 
   // -------CRUD CONTACTO------ //
+
   obtenerDatosContacto(): Observable<Contacto[]> {
     return this.http.get<any>("http://localhost:8080/contacto/traer");
   }
+  
+  guardarDatosContacto(form: Contacto): Observable<Contacto> {
+    return this.http.post<Contacto>("http://localhost:8080/contacto/crear" , form );
+  }
+
+  borrarDatosContacto(id: number): Observable<unknown> {
+  const url = `${"http://localhost:8080/contacto/borrar"}/${id}`; 
+  return this.http.delete(url);
+  }
+
 
   
 }
