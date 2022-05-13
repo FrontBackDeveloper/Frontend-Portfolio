@@ -10,5 +10,6 @@ export interface Personas {
     email:string;
     telefono:string;
     hobby:string;
+    descripcion:string;
    
 }

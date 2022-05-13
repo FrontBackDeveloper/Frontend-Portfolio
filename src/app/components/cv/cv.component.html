@@ -1,15 +1,17 @@
 <div class="container-fluid">
-    <div class="fotoPerfil"><img [src]="infoPersonal.fotoperfil" alt=""></div>
+   
     <div class="card">
         <h4>Informacion Personal</h4>
         <ul>
-            <li>{{"Nombre: " + infoPersonal.nombrecompleto}}</li>
-            <li>{{"Edad: " + infoPersonal.edad}}</li>
-            <li>{{"Puesto: " + infoPersonal.puesto}}</li>
-            <li>{{"Ciudad: " + infoPersonal.ciudad}}</li>
-            <li>{{"Pais: " + infoPersonal.pais}}</li>
-            <li>{{"Telefono: " + infoPersonal.telefono}}</li>
-            <li>{{"Correo electrónico: " + infoPersonal.email}}</li>
+            <li  *ngFor="let persona of infoPersonal">
+                <img [src]="persona.fotoperfil" alt="">
+                {{"Nombre: " + persona.nombrecompleto}}<br>
+                {{"Edad: " + persona.edad}}<br>
+                {{"Puesto: " + persona.puesto}}<br>
+                {{"Ciudad: " + persona.ciudad}}<br>
+                {{"Pais: " + persona.pais}}<br>
+                {{"Telefono: " + persona.telefono}}<br>
+                {{"Correo electrónico: " + persona.email}}<br>
            
         </ul>
     </div>

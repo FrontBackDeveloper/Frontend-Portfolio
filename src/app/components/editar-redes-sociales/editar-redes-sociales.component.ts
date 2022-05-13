@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-import { RedesSociales } from 'src/app/data/RedesSociales';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RedesSociales } from 'src/app/data/RedesSociales';
+
 
 @Component({
-  selector: 'app-encabezado',
-  templateUrl: './encabezado.component.html',
-  styleUrls: ['./encabezado.component.css']
+  selector: 'app-editar-redes-sociales',
+  templateUrl: './editar-redes-sociales.component.html',
+  styleUrls: ['./editar-redes-sociales.component.css']
 })
-export class EncabezadoComponent implements OnInit {
+export class EditarRedesSocialesComponent implements OnInit {
  
   redesList:RedesSociales[] = [];
-  item:any=[];
   isUserLogged: Boolean = false;
+  item:any=[];
   form: FormGroup;  
+  redes= [{id:1, name: "youtube"},
+          {id:2, name: "linkedin"},
+          {id:3, name: "facebook"},
+          {id:4, name: "instagram"},
+          {id:5, name: "telegram"},
+          {id:6, name: "twiter"},
+          {id:5, name: "whatsapp"}
+        ];
   
   constructor(private portfolio:PortfolioService,
     private authservice:AuthService,
@@ -29,17 +38,20 @@ export class EncabezadoComponent implements OnInit {
      }
 
      ngOnInit(): void {
-      this.isUserLogged = this.authservice.isUserLogged();  
+      this.isUserLogged = this.authservice.isUserLogged();
+      
       this.reloadData();
-      this.router.navigate(['main']);
     }
 
     reloadData() {
+     
       this.portfolio.obtenerDatosRedesSociales().subscribe(
         (data) => {
           this.redesList = data;
+          this.router.navigate(['editarredes'])
         }
       );
+
     }
     clearForm() {
       this.form.setValue({
@@ -59,14 +71,7 @@ export class EncabezadoComponent implements OnInit {
 
     onSubmit() {
       let redes: RedesSociales = this.form.value;
-      if (this.form.get('id')?.value == '') {
-        this.portfolio.guardarDatosRedesSociales(redes).subscribe(
-          (newRed: RedesSociales) => {
-            this.redesList.push(newRed);
-            this.reloadData();
-          }
-        );
-      } else {
+     
         console.log(redes);
         this.portfolio.editarDatosRedesSociales(redes).subscribe(
           () => {
@@ -74,32 +79,23 @@ export class EncabezadoComponent implements OnInit {
            }
         )
       }
-    }
-   
-  
-    nuevaRedSocial() {
-      this.clearForm();
-    }
-  
-    seleccionarYEditar(index: number) {
-      let redes: RedesSociales = this.redesList[index];
-      this.loadForm(redes);
-    }
-  
-    seleccionarYBorrar(index: number) {
-      let redes: RedesSociales = this.redesList[index];
-      if (confirm("¿Está seguro que desea borrar la Red social seleccionada?")) {
-        this.portfolio.borrarDatosRedesSociales(redes.id).subscribe(
-          () => {
-            this.reloadData();
-          }
-        )
+      seleccionarYEditar(index: number) {
+        let redes: RedesSociales = this.redesList[index];
+        this.loadForm(redes);
       }
-    }
-  logout(): void {
-    this.authservice.logout();
-    this.isUserLogged = false;
-    window.location.reload();
-    
-  }
+      seleccionarYBorrar(index: number) {
+        let redes: RedesSociales = this.redesList[index];
+        if (confirm("¿Está seguro que desea borrar la Red Social seleccionada?")) {
+          this.portfolio.borrarDatosRedesSociales(redes.id).subscribe(
+            () => {
+              this.reloadData();
+            }
+          )
+        }
+        this.router.navigate(['editarredes']);
+      }
+      nuevaRed() {
+        this.clearForm();
+      }
+
 }

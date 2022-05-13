@@ -22,6 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CVComponent } from './components/cv/cv.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
+import { EditarRedesSocialesComponent } from './components/editar-redes-sociales/editar-redes-sociales.component';
+import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
     MainComponent,
     CVComponent,
     ProyectosComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    EditarRedesSocialesComponent,
+    BandejaDeEntradaComponent
   ],
   imports: [
     BrowserModule,

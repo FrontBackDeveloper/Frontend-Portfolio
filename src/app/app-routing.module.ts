@@ -10,13 +10,17 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { FormacionComponent } from './components/formacion/formacion.component';
 import { LogrosComponent } from './components/logros/logros.component';
 import { PiedepaginaComponent } from './components/piedepagina/piedepagina.component';
+import { EditarRedesSocialesComponent } from './components/editar-redes-sociales/editar-redes-sociales.component';
+import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
-
 
 const routes: Routes = [
 {path: 'login', component:LoginComponent},
 {path: 'main', component:MainComponent},
-{path: '', redirectTo: 'main', pathMatch: 'full'},
+{path: 'editarredes', component:EditarRedesSocialesComponent},
+{path: 'bandejadeentrada', component:BandejaDeEntradaComponent},
+{path: 'contacto', component:ContactoComponent},
+{path: '', redirectTo: '/main', pathMatch: 'full'},
 {path: '**', redirectTo: '/main'}
 ];
 
