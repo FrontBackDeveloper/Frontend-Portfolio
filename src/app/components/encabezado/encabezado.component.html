@@ -6,30 +6,11 @@
      </div>
   
      <div class="menu">
-        <a routerLink="/main">Home</a>
+        <a routerLink="/home">Home</a>
         <a *ngIf="isUserLogged" routerLink="/bandejadeentrada">Correo</a>
         <a *ngIf="!isUserLogged" routerLink="/login" >Iniciar sesión</a>
-        <a *ngIf="isUserLogged"  routerLink="/main" (click)="logout()">Cerrar Sesión</a>
+        <a *ngIf="isUserLogged"  routerLink="/home" (click)="logout()">Cerrar Sesión</a>
      </div>
 </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="ModalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
-         <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="ModalLoginLabel">Login de usuario</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               <app-login></app-login>
-            </div>
-            <div class="modal-footer">
-           
-            </div>
-         </div>
-         </div>
-      </div>		
-               
-
-   
+    

@@ -9,6 +9,7 @@
 					<div class="card">
 							<div class="card-body">
 								<div class="img">
+									<img *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de logro">
 									<img [src]="logro.imagen" alt="imagen de Logro">
 								</div>
 										<p class="card-text"><b>Título: </b>{{logro.titulo}}</p>

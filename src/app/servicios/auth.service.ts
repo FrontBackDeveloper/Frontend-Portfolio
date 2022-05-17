@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { LoginDto } from '../data/LoginDto';
+import { UsuarioNuevo } from '../data/UsuarioNuevo';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class AuthService {
           sessionStorage.setItem("user", "gustavo123");
       })
     );
+  }
+
+  UsuarioNuevo(form: UsuarioNuevo): Observable<UsuarioNuevo> {
+    return this.http.post<UsuarioNuevo>("http://localhost:8080/registro" , form );
   }
 
   public logout() {

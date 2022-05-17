@@ -17,3 +17,9 @@ display: block;
 float: left;
 margin-right: 20px;
 }
+
+@media (max-width:480px) {
+	.img img{
+		width: 60%;
+	}
+}

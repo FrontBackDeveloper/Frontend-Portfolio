@@ -13,15 +13,17 @@ import { PiedepaginaComponent } from './components/piedepagina/piedepagina.compo
 import { EditarRedesSocialesComponent } from './components/editar-redes-sociales/editar-redes-sociales.component';
 import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
+{path: 'home', component:MainComponent},
 {path: 'login', component:LoginComponent},
-{path: 'main', component:MainComponent},
+{path: 'registro', component:RegistroComponent},
 {path: 'editarredes', component:EditarRedesSocialesComponent},
 {path: 'bandejadeentrada', component:BandejaDeEntradaComponent},
 {path: 'contacto', component:ContactoComponent},
-{path: '', redirectTo: '/main', pathMatch: 'full'},
-{path: '**', redirectTo: '/main'}
+{path: '', redirectTo: '/home', pathMatch: 'full'},
+{path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({

@@ -31,7 +31,7 @@ export class EncabezadoComponent implements OnInit {
      ngOnInit(): void {
       this.isUserLogged = this.authservice.isUserLogged();  
       this.reloadData();
-      this.router.navigate(['main']);
+      this.router.navigate(['home']);
     }
 
     reloadData() {
