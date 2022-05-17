@@ -10,6 +10,7 @@
 					<div class="card">
 							<div class="card-body">
 								<div class="img">
+									<img *ngIf="experiencia.imagen == '' " src="../../../assets/imagen.png" alt="logo de institución">
 									<img [src]="experiencia.imagen" alt="logo de institución">
 								</div>
 										<p class="card-text"><b>Puesto: </b>{{experiencia.puesto}}</p>

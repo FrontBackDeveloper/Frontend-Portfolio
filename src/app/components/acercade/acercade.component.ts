@@ -5,8 +5,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Personas } from 'src/app/data/Personas';
 import { RedesSociales } from 'src/app/data/RedesSociales';
 import { Router } from '@angular/router';
-import { EditarRedesSocialesComponent } from '../editar-redes-sociales/editar-redes-sociales.component';
-
 
 @Component({
   selector: 'app-acercade',

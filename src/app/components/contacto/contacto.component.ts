@@ -39,7 +39,7 @@ export class ContactoComponent implements OnInit {
                       this.contactoList.push();
                       alert("Su mensaje fue enviado exitosamente");
                      console.log(this.form.value);
-                     this.router.navigate(['main']);
+                     this.router.navigate(['home']);
                     });
               }
             

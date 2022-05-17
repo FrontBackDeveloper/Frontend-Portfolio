@@ -84,3 +84,9 @@ li{
 li .descripcion{
 	text-align: justify;
 }
+
+@media (max-width:480px) {
+	.info img{
+		width: 150px;
+	}
+}

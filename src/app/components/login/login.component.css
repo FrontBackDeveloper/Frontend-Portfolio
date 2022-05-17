@@ -9,14 +9,16 @@
 #contacto{
 	background: #34495E;
 	width: 100%;
-	margin: 20px auto;
 	max-width: 1200px;
+	padding-top: 50px;
+	padding-bottom: 120px;
+	
 }
 .contenedor-formularios{
 	width: 450px;
 	margin: 20px auto;
 	background: rgba(0, 0, 0, 0.4);
-    padding: 10px 20px;
+    padding: 40px 40px;
     box-sizing: border-box;
     margin-top: 20px;
     border-radius: 7px;

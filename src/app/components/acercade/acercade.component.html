@@ -6,15 +6,15 @@
 				<div class="info">
 					
 					<ul *ngFor="let info of infoPersonal, let i=index">
-						<li><b>Nombre:</b>{{info.nombrecompleto}}</li>
-						<li><b>Edad:</b>{{info.edad}}</li>
-						<li><b>Ocupación:</b>{{info.puesto}}</li>
-						<li><b>Título:</b>{{info.titulo}}</li>
-						<li><b>Ciudad:</b>{{info.ciudad}}</li>
-						<li><b>País:</b>{{info.pais}}</li>
-						<li><b>Correo electrónico:</b>{{info.email}}</li>
-						<li><b>Teléfono:</b>{{info.telefono}}</li>
-						<li><b>Hobby:</b>{{info.hobby}}</li>
+						<li><b>Nombre:     </b>{{info.nombrecompleto}}</li>
+						<li><b>Edad:       </b>{{info.edad}}</li>
+						<li><b>Ocupación:  </b>{{info.puesto}}</li>
+						<li><b>Título:     </b>{{info.titulo}}</li>
+						<li><b>Ciudad:     </b>{{info.ciudad}}</li>
+						<li><b>País:       </b>{{info.pais}}</li>
+						<li><b>E-mail:     </b>{{info.email}}</li>
+						<li><b>Teléfono:   </b>{{info.telefono}}</li>
+						<li><b>Hobby:      </b>{{info.hobby}}</li>
 						<hr>
 						
 						<li><b>Acerca de mí...</b></li>
@@ -31,8 +31,7 @@
 							   <li *ngFor="let redes of redesList , let i=index">
 								<a [href]="redes.url" class="fa fa-{{redes.nombre}}" target="_blank" title="{{redes.nombre}}"></a>
 							   </li>
-							   <a *ngIf="isUserLogged" href="#" (click)="editarRedesSociales()" class="editar fa fa-pencil" data-bs-toggle="modal" 
-							   									data-bs-target="#editar-redes" title="Editar Redes sociales"></a>
+							   <a *ngIf="isUserLogged" href="#" routerLink="/editarredes" class="editar fa fa-pencil" title="Editar Redes sociales"></a>
 							</ul>
 						 </div>
 					</div>

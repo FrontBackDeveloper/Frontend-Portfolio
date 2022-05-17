@@ -1,23 +1,23 @@
 /*estilos de seccion formularios */
 .contacto{
+	margin-top: 100px;
 	margin: auto;
 	max-width: 1200px;
 	background: #000;
 }
 
 #contacto{
-	background-image: url(../../../assets/fondo-contacto.jpg);
+	background: #34495E;
 	width: 100%;
 	max-width: 1200px;
 	padding-top: 50px;
 	padding-bottom: 120px;
-
 }
 .contenedor-formularios{
 	width: 450px;
 	margin: 20px auto;
 	background: rgba(0, 0, 0, 0.4);
-    padding: 10px 20px;
+    padding: 40px 40px;
     box-sizing: border-box;
     margin-top: 20px;
     border-radius: 7px;
@@ -43,6 +43,10 @@ textarea {
 }
 .parrafoformulario{
 	color: #fff;
+	display: block;
+}
+check{
+	float: left;
 }
 #boton {
 	background-color: #31384A;

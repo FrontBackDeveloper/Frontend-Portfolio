@@ -1,6 +1,8 @@
 
 <div class="contacto">
+   
     <div id="contacto">
+        <h1 class="tituloformulario">PortfolioWeb</h1>
         <div class="contenedor-formularios">
             <h2 class="tituloformulario">Inicio de sesión</h2>
             <p class="parrafoformulario">Ingrese su email y contraseña</p>
@@ -16,11 +18,11 @@
                     <span *ngIf="Email?.hasError('email')" class="text-danger">El email no cumple con el formato esperado.</span>
                 </div>     
                 <input type="password" placeholder="Ingrese su contraseña" name="password" formControlName="password" class="form-control" required>
-    
+                <p class="parrafoformulario">¿nuevo en PortfolioWeb? <a routerLink="/registro"> sí, Quiero registrarme</a> </p>
         <div *ngIf="loginError" class="text-danger">Las credenciales ingresadas no existen en nuestros registros.</div> 
         
         <button [disabled]="form.invalid" type="submit" class="btn btn-primary me-3">Iniciar sesión</button>
-        <button routerLink="/main" class="btn btn-primary">Cancelar</button>
+        <button routerLink="home" class="btn btn-primary">Cancelar</button>
     </form>
         </div>
     </div>

@@ -42,4 +42,12 @@ h5{
 .card-body p{
 	font-size: 14px;
 	line-height: 14px;
+
 }
+
+@media (max-width:480px) {
+	.info img{
+		width: 100px;
+	}
+}
+
