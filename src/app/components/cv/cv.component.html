@@ -1,28 +1,45 @@
+
+<div class="topnav">
+	<div class="logo">
+	 <img src="../../../assets/logo_argentinaPrograma (2).jpg" alt="Logotipo Argentina Programa" title="Logotipo Argentina Programa">
+	 <a class="ocultar" href="https://argentinaprograma.inti.gob.ar" target="blank">Argentina Programa - #YoProgramo</a>
+	</div>
+ 
+	<div class="menu">
+	   <a routerLink="/home">Home</a>
+	</div>
+</div>
 <div class="container-fluid">
-   
+    
     <div class="card">
         <h4>Informacion Personal</h4>
         <ul>
             <li  *ngFor="let persona of infoPersonal">
-                <img [src]="persona.fotoperfil" alt="">
-                {{"Nombre: " + persona.nombrecompleto}}<br>
-                {{"Edad: " + persona.edad}}<br>
-                {{"Puesto: " + persona.puesto}}<br>
-                {{"Ciudad: " + persona.ciudad}}<br>
-                {{"Pais: " + persona.pais}}<br>
-                {{"Telefono: " + persona.telefono}}<br>
-                {{"Correo electrónico: " + persona.email}}<br>
-           
+                <div class="col-6">
+                    <img [src]="persona.fotoperfil" alt="Foto de perfil" title="Foto de perfil">
+                </div>
+               
+               <div class="col-12 perfil">
+                <b>Nombre: </b>{{" " + persona.nombrecompleto}}<br>
+                <b>Edad: </b>{{" " + persona.edad}}<br>
+                <b>Puesto: </b>{{" " + persona.puesto}}<br>
+                <b>Ciudad: </b>{{" " + persona.ciudad}}<br>
+                <b>Pais: </b>{{" " + persona.pais}}<br>
+                <b>Telefono: </b>{{" " + persona.telefono}}<br>
+                <b>Correo electrónico: </b>{{" " + persona.email}}<br>
+                <b>Hobby: </b>{{" " + persona.hobby}}<br>
+               </div>
+               
         </ul>
     </div>
     <div class="card">
         <h4>Formación</h4>
         <ul>
             <li *ngFor="let formacion of formacionList">
-                    {{"Título: " + formacion.titulo}} <br>
-                    {{"Institución: " + formacion.institucion}} <br>
-                    {{"Lugar: " + formacion.lugar}} <br>
-                    {{"Período: " + formacion.fecha}} <br>
+                    <b>Título: </b> {{" " + formacion.titulo}} <br>
+                    <b>Institución: </b>{{" " + formacion.institucion}} <br>
+                    <b>Lugar: </b>{{" " + formacion.lugar}} <br>
+                    <b>Fecha: </b> {{" " + formacion.fecha}} <br>
                     <hr>
             </li>
         </ul>
@@ -32,9 +49,10 @@
         <h4>Experiencia</h4>
         <ul>
             <li *ngFor="let experiencia of experienciaList">
-                    {{"Puesto: " + experiencia.puesto}} <br>
-                    {{"Lugar: " + experiencia.lugar}} <br>
-                    {{"Desde: " + experiencia.desde + "Hasta: " + experiencia.hasta}} <br>
+                    <b>Puesto: </b>{{" " + experiencia.puesto}} <br>
+                    <b>Lugar: </b>{{" " + experiencia.lugar}} <br>
+                    <b>Desde: </b>{{" " + experiencia.desde}} <br>
+                    <b>Hasta: </b>{{" " + experiencia.hasta}} <br>
                     <hr>    
             </li>
         </ul>
@@ -43,14 +61,19 @@
         <h4>Logros</h4>
         <ul>
             <li *ngFor="let logros of logrosList">
-                
-                    {{"Titulo: " + logros.titulo}} <br>
-                    {{"institución: " + logros.institucion}} <br>
-                    {{"Lugar: " + logros.lugar}} <br>
-                    {{"Fecha: " + logros.fecha}} <br>
+                    <b>Titulo: </b>{{" " + logros.titulo}} <br>
+                    <b>institución: </b>{{" " + logros.institucion}} <br>
+                    <b>Lugar: </b>{{" " + logros.lugar}} <br>
+                    <b>Fecha: </b>{{" " + logros.fecha}} <br>
                     <hr>    
             </li>
         </ul>
     </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+         <button  class="btn btn-primary" (click)="descargarCV()">Descargar</button>
+         <button routerLink="/home" class="btn btn-primary">Cancelar</button>
+       
+    </div>
+    <br>
 
 </div>

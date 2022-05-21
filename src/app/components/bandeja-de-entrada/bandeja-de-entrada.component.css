@@ -1,4 +1,5 @@
 /* Add a black background color to the top navigation */
+
 .topnav {
     background-color: #34495E ;
     overflow: hidden;
@@ -46,6 +47,16 @@
   .topnav .menu a:hover {
     background-color: #ddd;
     color: black;
+  }
+  
+  
+  @media (max-width: 450px){
+    .topnav .logo a{
+      display: none;
+    }
+    h4{
+      font-size: 15px;
+    }
   }
   
   

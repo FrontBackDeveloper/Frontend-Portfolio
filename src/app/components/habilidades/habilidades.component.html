@@ -2,7 +2,7 @@
 	<div class="col-1"><h4>Habilidades</h4></div>
 	<div class="col-10"></div>
 	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaHabilidad()"
-                             data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="nuevo"></a></div>
+                             data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="Nueva habilidad"></a></div>
 	<div class="container-fluid">
 		<ul>
 			<li *ngFor="let habilidad of habilidadesList , let i=index">

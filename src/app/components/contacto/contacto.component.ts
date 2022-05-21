@@ -42,6 +42,19 @@ export class ContactoComponent implements OnInit {
                      this.router.navigate(['home']);
                     });
               }
+              get Nombre() {
+                return this.form.get('nombre');
+              }
+              get Telefono() {
+                return this.form.get('telefono');
+              }
+              get Email() {
+                return this.form.get('email');
+              }
+              get Mensaje() {
+                return this.form.get('mensaje');
+              }
+
             
             }
             

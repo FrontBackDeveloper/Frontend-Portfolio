@@ -25,7 +25,7 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { EditarRedesSocialesComponent } from './components/editar-redes-sociales/editar-redes-sociales.component';
 import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { EditarFormacionComponent } from './components/dashboard/editar-formacion/editar-formacion.component';
+
 
 
 @NgModule({
@@ -46,8 +46,7 @@ import { EditarFormacionComponent } from './components/dashboard/editar-formacio
     HabilidadesComponent,
     EditarRedesSocialesComponent,
     BandejaDeEntradaComponent,
-    RegistroComponent,
-    EditarFormacionComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

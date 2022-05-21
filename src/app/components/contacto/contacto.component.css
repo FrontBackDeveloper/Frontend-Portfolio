@@ -1,26 +1,22 @@
 /*estilos de seccion formularios */
-.contacto{
-	margin: auto;
-	max-width: 1200px;
-	background: #000;
-}
 
 #contacto{
-	background-image: url(../../../assets/fondo-contacto.jpg);
-	width: 100%;
-	max-width: 1200px;
-	padding-top: 50px;
-	padding-bottom: 120px;
-
+	background: #34495E;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto;
+	border-radius: 10px;
 }
 .contenedor-formularios{
-	width: 450px;
+	width: 300px;
 	margin: 20px auto;
 	background: rgba(0, 0, 0, 0.4);
-    padding: 10px 20px;
+    padding: 40px 40px;
     box-sizing: border-box;
     margin-top: 20px;
     border-radius: 7px;
+	flex-wrap: wrap;
 }
 
 input, textarea{
@@ -43,6 +39,10 @@ textarea {
 }
 .parrafoformulario{
 	color: #fff;
+	text-align: center;
+}
+p{
+	text-align: center;
 }
 #boton {
 	background-color: #31384A;

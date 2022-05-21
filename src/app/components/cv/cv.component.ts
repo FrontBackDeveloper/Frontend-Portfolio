@@ -4,6 +4,7 @@ import { Personas } from 'src/app/data/Personas';
 import { Formacion } from 'src/app/data/Formacion';
 import { Experiencia } from 'src/app/data/Experiencia';
 import { Logros } from 'src/app/data/Logros';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cv',
@@ -16,7 +17,8 @@ export class CVComponent implements OnInit {
   experienciaList:Experiencia[] = [];
   logrosList:Logros[] = [];
 
-  constructor(private portfolio:PortfolioService) { }
+  constructor(private portfolio:PortfolioService,
+               private router: Router) { }
 
   ngOnInit(): void {
     this.portfolio.obtenerDatosPersonas().subscribe(data =>{
@@ -36,6 +38,10 @@ export class CVComponent implements OnInit {
       this.logrosList=data;
       console.log(data);
     });
+  }
+  descargarCV(){
+    alert("Se ha descargado correctamente");
+    this.router.navigate(['/home']);
   }
 }
 

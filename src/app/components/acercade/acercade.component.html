@@ -1,83 +1,47 @@
-<div class="contenedor">
-		<div id="info">
-			<div class="col-1"><h3>Perfil</h3></div>
-			<div class="col-10"></div>
-			
-				<div class="info">
-					
-					<ul *ngFor="let info of infoPersonal, let i=index">
-						<li><b>Nombre:     </b>{{info.nombrecompleto}}</li>
-						<li><b>Edad:       </b>{{info.edad}}</li>
-						<li><b>Ocupación:  </b>{{info.puesto}}</li>
-						<li><b>Título:     </b>{{info.titulo}}</li>
-						<li><b>Ciudad:     </b>{{info.ciudad}}</li>
-						<li><b>País:       </b>{{info.pais}}</li>
-						<li><b>E-mail:     </b>{{info.email}}</li>
-						<li><b>Teléfono:   </b>{{info.telefono}}</li>
-						<li><b>Hobby:      </b>{{info.hobby}}</li>
-						<hr>
-						
-						<li><b>Acerca de mí...</b></li>
-						<li class="descripcion">{{info.descripcion}}</li>
-						<a  *ngIf="isUserLogged" href="#"(click)="seleccionarYEditar(i)" class="editar fa fa-pencil" 
-								data-bs-toggle="modal" data-bs-target="#nuevo-perfil" title="Editar perfil"></a>
-					</ul> 	
-				</div>
-
-				<div class="info">		
-					    <img *ngFor="let img of infoPersonal" [src]="img.fotoperfil" alt="imagen del perfil" title="Imagen de perfil">						
-						<div class="redes">
-							<ul>
-							   <li *ngFor="let redes of redesList , let i=index">
-								<a [href]="redes.url" class="fa fa-{{redes.nombre}}" target="_blank" title="{{redes.nombre}}"></a>
-							   </li>
-							   <a *ngIf="isUserLogged" href="#" routerLink="/editarredes" class="editar fa fa-pencil" title="Editar Redes sociales"></a>
-							</ul>
-						 </div>
-					</div>
-				
+<div class="container">
 	
-		</div>
-	</div>
-
-<!--- modal nuevo-perfil-->
-<div class="modal fade" id="nuevo-perfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<form [formGroup]="form" (ngSubmit)="onSubmit()">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="nuevo-perfil">Editar perfil</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<input type="hidden" name="id" formControlName="id">
-			<label for="nombrecompleto">Nombre Completo</label>
-			<input  type="text" class="form-control" formControlName="nombrecompleto"><br>
-			<label for="edad">Edad</label>
-			<input  type="text" class="form-control" formControlName="edad"><br>
-			<label for="puesto">Puesto</label>
-			<input  type="text" class="form-control" formControlName="puesto"><br>
-			<label for="titulo">Título</label>
-			<input  type="text" class="form-control" formControlName="titulo"><br>
-			<label for="ciudad">Ciudad</label>
-			<input  type="text" class="form-control" formControlName="ciudad"><br>
-			<label for="pais">País</label>
-			<input  type="text" class="form-control" formControlName="pais"><br>
-			<label for="email">Correo electrónico</label>
-			<input  type="text" class="form-control" formControlName="email"><br>
-			<label for="telefono">Teléfono</label>
-			<input  type="text" class="form-control" formControlName="telefono"><br>
-			<label for="hobby">Hobby</label>
-			<input  type="text" class="form-control" formControlName="hobby"><br>
-			<label for="descripcion">Descripción</label>
-			<textarea  type="text" class="form-control" formControlName="descripcion"></textarea>
+	<div class="row" *ngFor="let info of infoPersonal, let i=index">
 		
-		<div class="modal-footer">
-		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
-		</div>
-	
-	</div>
-	
-	</div>
+		<div class="col col-sm-6">
+			<div class="row">
+				<div class="col-10"><h3>Perfil</h3></div>
+				<div class="col-2"><a  *ngIf="isUserLogged && info.nombrecompleto!=''" href="#"  class="editar fa fa-plus" (click)="nuevaPersona()" 
+					data-bs-toggle="modal" data-bs-target="#nuevo-perfil" title="Nuevo perfil"></a></div>
+			</div>
+			<ul>
+				<li><b>Nombre:     </b>{{info.nombrecompleto}}</li>
+				<li><b>Edad:       </b>{{info.edad}}</li>
+				<li><b>Ocupación:  </b>{{info.puesto}}</li>
+				<li><b>Título:     </b>{{info.titulo}}</li>
+				<li><b>Ciudad:     </b>{{info.ciudad}}</li>
+				<li><b>País:       </b>{{info.pais}}</li>
+				<li><b>E-mail:     </b>{{info.email}}</li>
+				<li><b>Teléfono:   </b>{{info.telefono}}</li>
+				<li><b>Hobby:      </b>{{info.hobby}}</li>
+				<hr>
+				<div class="redes">
+					<ul>
+					   <li *ngFor="let redes of redesList , let i=index">
+						<a [href]="redes.url" class="icon fa fa-{{redes.nombre}}" target="_blank" title="{{redes.nombre}}"></a>
+					   </li>
+					   <a *ngIf="isUserLogged" href="#" routerLink="/editarredes" class="editar fa fa-pencil" title="Editar Redes sociales"></a>
+					</ul>
+				 </div>
+			</ul> 	
 
-</div>
+		</div>
+		<div class="imagendeperfil col col-sm-6 order-first">
+			<img *ngFor="let img of infoPersonal" [src]="img.fotoperfil" alt="imagen del perfil" title="Imagen de perfil">						
+		</div>
+	</div>
+	<div class="row" *ngFor="let info of infoPersonal, let i=index">
+		<div class="col-12">
+			<h2>Acerca de</h2>
+			<p class="descripcion">{{info.descripcion}}
+				<a  *ngIf="isUserLogged" href="#"(click)="seleccionarYEditar(i)" class="editar fa fa-pencil" 
+						data-bs-toggle="modal" data-bs-target="#nuevo-perfil" title="Editar perfil"></a></p>
+			
+		</div>
+		<hr>
+	</div>
+		

@@ -100,14 +100,21 @@ export class AcercadeComponent implements OnInit {
     }
 
     onSubmit() {
-      let personas: Personas = this.form.value;
-     
-        console.log(personas);
-        this.portfolio.editarDatosPersonas(personas).subscribe(
-          () => {
-                  this.reloadData();
-           }
-        )
+      let persona: Personas = this.form.value;
+                if (this.form.get('id')?.value == '') {
+                  this.portfolio.guardarDatosPersonas(persona).subscribe(
+                    (newPersona: Personas) => {
+                      this.infoPersonal.push(newPersona)
+                    }
+                  );
+                } else {
+                  console.log(persona);
+                  this.portfolio.editarDatosPersonas(persona).subscribe(
+                    () => {
+                            this.reloadData();
+                     }
+                  )
+                }
       }
       seleccionarYEditar(index: number) {
         let personas: Personas = this.infoPersonal[index];
@@ -115,6 +122,9 @@ export class AcercadeComponent implements OnInit {
       }
       nuevaDescripcion() {
         console.log("editar descripcion");
+      }
+      nuevaPersona() {
+        console.log("nueva persona");
       }
 
       editarRedesSociales(){

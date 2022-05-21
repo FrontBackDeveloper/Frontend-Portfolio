@@ -1,21 +1,39 @@
-
-<div class="contacto">
-	<div id="contacto">
-		<div class="contenedor-formularios">
-				<h2 class="tituloformulario">CONTACTAME</h2>
-				<p class="parrafoformulario">Complete el siguiente formulario, y a la brevedad me comunicaré con ud. </p>
-				<hr>	
-				<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
-		     
-		        	<input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
-		        
-		        	<input type="text" class="form-control" formControlName="Telefono"  placeholder="Teléfono">
-		        
-		        	<input type="text" class="form-control" formControlName="email"  placeholder="Correo electrónico">
-		  
-		        	<textarea class="form-control" formControlName="mensaje"  placeholder="Escriba aquí su mensaje" cols="30" rows="10"></textarea>
-		        	<input type="submit" value="ENVIAR">
-		        </form>
-		</div>
-	</div>
+<div class="contenedor">
+    <h1 class="tituloformulario">PortfolioWeb</h1>
+       
+    <div id="contacto">
+       
+        <div class="contenedor-formularios">
+            <h2 class="tituloformulario">Contáctame</h2>
+            <p class="parrafoformulario">Complete el formulario y me contactaré con ud. a la brevedad</p>
+				<hr>
+              <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+                <div class="mb-3">
+                    <input type="text" placeholder="Nombre"  formControlName="nombre" class="form-control" 
+                    [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched }"
+                    required>    
+                </div>
+ 
+				<div class="mb-3">
+                    <input type="text" placeholder="Teléfono"  formControlName="telefono" class="form-control" 
+                    [ngClass]="{'is-invalid': Telefono?.errors && Telefono?.touched, 'is-valid': !Telefono?.errors && Telefono?.touched }"
+                    required>    
+                </div>
+               
+                <div *ngIf="Email?.errors && Email?.touched">
+                    <span *ngIf="Email?.hasError('required')" class="text-danger">El email es requerido.</span>
+                    <span *ngIf="Email?.hasError('email')" class="text-danger">El email no cumple con el formato esperado.</span>
+                </div>          
+				<div class="mb-12">		
+					<textarea class="form-control" id="validationTextarea" formControlName="mensaje" placeholder="Escriba aquí su mensaje..." required></textarea> 
+                </div>      
+               
+				<div class="d-grid gap-2">
+					<button  type="submit" class="btn btn-primary">Enviar</button>
+     			    <button routerLink="/home" class="btn btn-primary">Cancelar</button>
+				</div>
+        
+    </form>
+        </div>
+    </div>
 </div>
