@@ -1,40 +1,55 @@
-.titulo {
-	margin: 0 auto;
+.container-fluid {
+	margin-top: 65px;
 	padding:40px;
 	background-image: url(../../../assets/fondo-header.jpg);
 	background-size: 100vw 100hw;
 	max-width: 1200px;
-	background-position: center;
-	
+	background-position: center;	
 }
-.titulo h1{
-	font-size: 45px;
-	color: #ccc;
-	margin-left: 100px;
-}
-.titulo h2{
-	font-size: 35px;
+
+h1{
+	font-size: 55px;
 	color: #fff;
-	margin-left: 100px;
+	margin-left: 10px;
 }
-.titulo p{
-	font-size: 20px;
-	color: #ccc;
-	margin-left: 100px;
+h2{
+	font-size: 45px;
+	color: #fff;
+	margin-left: 10px;
+
+	color:#fff;
+	text-shadow: 2px  0px 0px black,
+				 0px  1px 0px black,
+				-1px  0px 0px black,
+				 0px -1px 0px black;
 }
-.btn{
-	padding: 8px 15px;
-	margin-left: 100px;
+p{
+	font-size: 30px;
+	margin-left: 10px;
+
+	color:#000;
+	text-shadow: 1px  0px 0px #fff,
+				 0px  1px 0px #fff,
+				-1px  0px 0px #fff,
+				 0px -1px 0px #fff;
 }
-.btn:hover{
+button{
+	padding:10px 15px;
+	margin: 5px;
+}
+button:hover{
 	background: rgba(0, 0, 0, 0.2);
 	color: #fff;
 	transition: 0.4s;
 }
-.container{
-	border: 1px solid #ccc;
-	border-radius: 5px;
-}
-li{
-	list-style: none;
+@media (max-width:450px) {
+	h1{
+		font-size: 35px;
+	}
+	h2{
+		font-size: 25px;
+	}
+	p{
+		font-size: 18px;		
+	}
 }

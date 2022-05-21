@@ -1,16 +1,45 @@
-
-<div class="topnav" id="myTopnav">
-     <div class="logo">
-      <img src="../../../assets/logo_argentinaPrograma (2).jpg" alt="Logotipo Argentina Programa" title="Logotipo Argentina Programa">
-      <a href="https://argentinaprograma.inti.gob.ar" target="blank">Argentina Programa - #YoProgramo</a>
-     </div>
-  
-     <div class="menu">
-        <a routerLink="/home">Home</a>
-        <a *ngIf="isUserLogged" routerLink="/bandejadeentrada">Correo</a>
-        <a *ngIf="!isUserLogged" routerLink="/login" >Iniciar sesión</a>
-        <a *ngIf="isUserLogged"  routerLink="/home" (click)="logout()">Cerrar Sesión</a>
-     </div>
+<div class="container-fluid">
+   <nav class="navbar bg-light fixed-top">
+       <div class="container-fluid">
+           <div class="logo">
+             <a href="https://argentinaprograma.inti.gob.ar" target="blank">
+              <img src="../../../assets/logo_argentinaPrograma (2).jpg" 
+                   alt="Logotipo Argentina Programa" title="Logotipo Argentina Programa">
+             </a>
+               
+               <a class="ocultar" href="https://argentinaprograma.inti.gob.ar" target="blank">Argentina Programa - #YoProgramo</a>
+              </div>
+         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+           <div class="offcanvas-header">
+             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PortfolioWeb</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+           </div>
+           <hr>
+           <div class="offcanvas-body">
+             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+               
+               <li class="nav-item">
+                   <a class="nav-link" *ngIf="isUserLogged" routerLink="/bandejadeentrada">> Correo</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" *ngIf="!isUserLogged" routerLink="/contacto" >> Contáctame</a>
+               </li>
+               <li class="nav-item">
+               <a class="nav-link" routerLink="/descargaCV">> Descargar CV</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" *ngIf="!isUserLogged" routerLink="/login" >> Iniciar sesión</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" *ngIf="isUserLogged"  routerLink="/home" (click)="logout()">> Cerrar Sesión</a>
+               </li>
+             </ul>
+            
+           </div>
+         </div>
+       </div>
+     </nav>
 </div>
-
-    

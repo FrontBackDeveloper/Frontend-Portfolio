@@ -14,6 +14,9 @@ import { EditarRedesSocialesComponent } from './components/editar-redes-sociales
 import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { CVComponent } from './components/cv/cv.component';
+
+
 
 const routes: Routes = [
 {path: 'home', component:MainComponent},
@@ -22,6 +25,7 @@ const routes: Routes = [
 {path: 'editarredes', component:EditarRedesSocialesComponent},
 {path: 'bandejadeentrada', component:BandejaDeEntradaComponent},
 {path: 'contacto', component:ContactoComponent},
+{path: 'descargaCV', component:CVComponent},
 {path: '', redirectTo: '/home', pathMatch: 'full'},
 {path: '**', redirectTo: '/home'}
 ];

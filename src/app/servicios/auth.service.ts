@@ -9,11 +9,12 @@ import { UsuarioNuevo } from '../data/UsuarioNuevo';
   providedIn: 'root'
 })
 export class AuthService {
+  urlBase: string = "https://portfoliowebbackend.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
   public login(credentials: LoginDto) : Observable<Boolean> {
-    return this.http.post<Boolean>("http://localhost:8080/login", credentials).pipe(
+    return this.http.post<Boolean>(this.urlBase + "/login", credentials).pipe(
       tap((response: Boolean) => {
         if (response)
           sessionStorage.setItem("user", "gustavo123");
@@ -22,7 +23,7 @@ export class AuthService {
   }
 
   UsuarioNuevo(form: UsuarioNuevo): Observable<UsuarioNuevo> {
-    return this.http.post<UsuarioNuevo>("http://localhost:8080/registro" , form );
+    return this.http.post<UsuarioNuevo>(this.urlBase + "/registro" , form );
   }
 
   public logout() {

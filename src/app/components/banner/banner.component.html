@@ -1,33 +1,12 @@
-<div class="titulo">
-	<h1>Hola,</h1>
+<div class="container-fluid">
+	<h1>Hola!</h1>
 	<div *ngFor="let info of infoPersonal">
-	<h2>Soy {{info.nombrecompleto}}</h2>
+	<h2>Soy{{" " + info.nombrecompleto}}</h2>
 	<p>{{info.puesto}}</p><br>
     </div>
 	<div>
 		<button type="button" routerLink="/contacto" class="btn btn-primary" >Contáctame</button>
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCV">
-			Descargar CV
-		</button>
-	</div><br>
+		<button type="button" routerLink="/descargaCV" class="btn btn-primary">Descargar CV</button>
+	</div>
+	<br>
 </div>	
-
-<!-- modal cv -->
-				<div class="modal fade" id="exampleModalCV" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-					<div class="modal-content">
-						<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Currículum Vitae</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-	
-							<app-cv></app-cv>
-						
-						</div>
-						<div class="modal-footer">
-						<button type="button" class="btn btn-primary" (click)="descargarCV()">Descargar</button>
-						</div>
-					</div>
-					</div>
-				</div>

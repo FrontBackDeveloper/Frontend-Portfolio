@@ -1,22 +1,37 @@
 
-<div class="contacto">
+<div class="contenedor">
+    <h1 class="tituloformulario">PortfolioWeb</h1>
     <div id="contacto">
+      
         <div class="contenedor-formularios">
             <h2 class="tituloformulario">Registro de Usuario</h2>
             <br>
 				<hr>
               <form  [formGroup]="form" (ngSubmit)="onSubmit($event)">
-                <input type="text" placeholder="Ingrese su nombre"  formControlName="nombre" class="form-control" >
+                  <div class="mb-3">
+                    <input type="text" placeholder="Ingrese su nombre"  formControlName="nombre" class="form-control" >
+                  </div>
                
+               <div class="mb-3">
                 <input type="text" placeholder="Ingrese su email"  formControlName="email" class="form-control" >
                
+               </div>
+               <div class="mb-3">
                 <input type="password" placeholder="Ingrese su contraseña"  formControlName="password" class="form-control" required>
+               </div>
+               
                 
-                <label for="isenabled" class="parrafoformulario">Acepto los términos y condiciones </label>
-                <input type="checkbox" [value]="true" formControlName="isenabled" class="check" id="isenabled">
-             
-        <button type="submit" class="btn btn-primary me-3">Registrarme</button>
-        <button routerLink="/home" class="btn btn-primary">Cancelar</button>
+                <div class="form-check">
+                    <label class="form-check-label" for="isenabled">Acepto los términos y condiciones </label>
+                    <input type="checkbox" [value]="true" formControlName="isenabled" 
+                                class="form-check-input" id="isenabled">
+                   
+                  </div>
+                  <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+             <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Registrarme</button>
+                <button routerLink="/home" class="btn btn-primary">Cancelar</button>
+             </div>      
     </form>
         </div>
     </div>

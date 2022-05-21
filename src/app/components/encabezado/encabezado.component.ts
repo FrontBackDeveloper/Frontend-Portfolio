@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
- 
   redesList:RedesSociales[] = [];
   item:any=[];
   isUserLogged: Boolean = false;

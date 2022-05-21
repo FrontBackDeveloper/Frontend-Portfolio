@@ -11,9 +11,7 @@ export class BannerComponent implements OnInit {
   infoPersonal:Personas[] = [];
   constructor(private portfolio:PortfolioService) { }
  
-  descargarCV(){
-    alert("Se ha descargado correctamente")
-  }
+ 
 
   ngOnInit(): void {
    this.portfolio.obtenerDatosPersonas().subscribe(data =>{

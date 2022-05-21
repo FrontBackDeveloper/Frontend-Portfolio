@@ -10,11 +10,11 @@
 							<div class="card-body">
 								<div class="img">
 									<img *ngIf="proyecto.imagen == '' " src="../../../assets/imagen.png" alt="logo de proyecto">
-									<img [src]="proyecto.imagen" alt="imagen de proyecto">
+									<img *ngIf="proyecto.imagen !== '' " [src]="proyecto.imagen" alt="imagen de proyecto">
 								</div>
 										<p class="card-text"><b>Nombre: </b>{{proyecto.titulo}}</p>
 										<p class="card-text"><b>Tipo: </b>{{proyecto.tipo}}</p>
-										<p class="card-text"><b>Creado: </b>{{proyecto.creado}}</p>
+										<p class="card-text"><b>Fecha: </b>{{proyecto.creado}}</p>
 										<p class="card-text"><b>Herramientas: </b>{{proyecto.herramientas}}</p>
                                         <p class="card-text"><b>Estado: </b>{{proyecto.estado}}</p>
                                         <p class="card-text"><b>Url: </b><a [href]="proyecto.url" target="_blank" >{{proyecto.url}}</a></p>
@@ -43,8 +43,8 @@
 			<input  type="text" class="form-control" formControlName="titulo" ><br>
 			<label for="tipo">Tipo: </label>
 			<input  type="text" class="form-control" formControlName="tipo"><br>
-			<label for="creado">Creado: </label>
-			<input  type="text" class="form-control" formControlName="creado"><br>
+			<label for="creado">Fecha: </label>
+			<input  type="date" class="form-control" formControlName="creado"><br>
 			<label for="herramientas">Herramientas: </label>
 			<input  type="text" class="form-control" formControlName="herramientas"><br>
             <label for="estado">Estado: </label>

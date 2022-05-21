@@ -10,7 +10,7 @@
 							<div class="card-body">
 								<div class="img">
 									<img *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de logro">
-									<img [src]="logro.imagen" alt="imagen de Logro">
+									<img *ngIf="logro.imagen !== '' " [src]="logro.imagen" alt="imagen de Logro">
 								</div>
 										<p class="card-text"><b>Título: </b>{{logro.titulo}}</p>
 										<p class="card-text"><b>Institución: </b>{{logro.institucion}}</p>
@@ -45,7 +45,7 @@
 			<label for="lugar">Lugar: </label>
 			<input  type="text" class="form-control" formControlName="lugar"><br>
 			<label for="fecha">Fecha: </label>
-			<input  type="text" class="form-control" formControlName="fecha"><br>
+			<input  type="date" class="form-control" formControlName="fecha"><br>
 			<label for="url">Url: </label>
 			<input  type="text" class="form-control" formControlName="url"><br>
 			<label for="imagen">Imagen: </label>
