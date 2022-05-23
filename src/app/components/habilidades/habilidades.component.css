@@ -1,20 +1,25 @@
 /* Make sure that padding behaves as expected */
-* {box-sizing:border-box}
+* {
+  box-sizing:border-box
+}
 
 /* Container for skill bars */
 .container {
   width: 100%; /* Full width */
-  background-color: #ddd; /* Grey background */
+  max-width: 1200px;
 }
 
 .skills {
-  text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
+  text-align: center; /* Right-align text */
+  padding-top: 3px; /* Add top padding */
+  padding-bottom: 3px; /* Add bottom padding */
   color: white; /* White text color */
 }
 
-.nivel {width: 20%; background-color: #04AA6D;} /* Green */
+.nivel {
+  width: 2%;
+  background-color: #34495E;
+}
 
 li{
     list-style: none;

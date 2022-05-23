@@ -1,6 +1,5 @@
-<div class="contenedor">
-	<div class="col-1"><h4>Habilidades</h4></div>
-	<div class="col-10"></div>
+<div class="container">
+	<div class="col-11"><h4>Habilidades</h4></div>
 	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaHabilidad()"
                              data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="Nueva habilidad"></a></div>
 	<div class="container-fluid">
@@ -13,10 +12,7 @@
 								<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" 
                                                             class="editar fa fa-trash"   title="Eliminar habilidad"></a>																			
 								<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" 
-                                                            class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="Editar habilidad"></a>
-							
-					
-				
+                                                            class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-habilidad" title="Editar habilidad"></a>				
 			</li>
 		</ul>
 	</div>

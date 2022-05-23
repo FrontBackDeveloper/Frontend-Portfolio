@@ -120,13 +120,7 @@ export class AcercadeComponent implements OnInit {
         let personas: Personas = this.infoPersonal[index];
         this.loadForm(personas);
       }
-      nuevaDescripcion() {
-        console.log("editar descripcion");
-      }
-      nuevaPersona() {
-        console.log("nueva persona");
-      }
-
+ 
       editarRedesSociales(){
         console.log("ir a panel de edicion...");
         this.router.navigate(['/editarredes']);

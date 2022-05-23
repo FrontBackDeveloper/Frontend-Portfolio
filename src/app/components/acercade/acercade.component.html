@@ -5,8 +5,7 @@
 		<div class="col col-sm-6">
 			<div class="row">
 				<div class="col-10"><h3>Perfil</h3></div>
-				<div class="col-2"><a  *ngIf="isUserLogged && info.nombrecompleto!=''" href="#"  class="editar fa fa-plus" (click)="nuevaPersona()" 
-					data-bs-toggle="modal" data-bs-target="#nuevo-perfil" title="Nuevo perfil"></a></div>
+				
 			</div>
 			<ul>
 				<li><b>Nombre:     </b>{{info.nombrecompleto}}</li>
@@ -44,4 +43,46 @@
 		</div>
 		<hr>
 	</div>
+
+<!--- modal guardar-perfil-->
+<div class="modal fade" id="nuevo-perfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="nuevo-perfil">Perfil</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<input type="hidden" name="id" formControlName="id">
+			<label for="nombrecompleto">Nombre: </label>
+			<input  type="text" class="form-control" formControlName="nombrecompleto" ><br>
+			<label for="edad">Edad: </label>
+			<input  type="text" class="form-control" formControlName="edad"><br>
+			<label for="puest">Ocupacion: </label>
+			<input  type="text" class="form-control" formControlName="puesto"><br>
+			<label for="titulo">Título: </label>
+			<input  type="text" class="form-control" formControlName="titulo"><br>
+			<label for="ciudad">Ciudad: </label>
+			<input  type="text" class="form-control" formControlName="ciudad"><br>
+			<label for="pais">País: </label>
+			<input  type="text" class="form-control" formControlName="pais"><br>
+			<label for="email">e-mail: </label>
+			<input  type="text" class="form-control" formControlName="email"><br>
+			<label for="telefono">Teléfono: </label>
+			<input  type="text" class="form-control" formControlName="telefono"><br>			
+			<label for="hobbyd">Hobby: </label>
+			<input  type="text" class="form-control" formControlName="hobby"><br>
+			<label for="descripcion">A cerca de: </label>
+			<input  type="text" class="form-control" formControlName="descripcion"><br>
+			
+		<div class="modal-footer">
+		<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+		</div>
+	
+	</div>
+	
+	</div>
+
+</div>
 		

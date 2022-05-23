@@ -1,9 +1,13 @@
-.contenedor{
+
+.container{
+	max-width: 1200px;
 	background-color: #34495E;
 	color: #fff;
+	justify-content: space-around;
+	padding: 20px;
 }
-ul li{
-	list-style: none;
+p{
+	text-align: center;
 }
 .icon{
 	color: #fff;
@@ -17,7 +21,4 @@ a{
 a:hover{
 	color: #283747;
 	cursor: pointer;
-}
-h3{
-	margin-left: 80px;
 }

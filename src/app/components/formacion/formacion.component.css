@@ -24,6 +24,7 @@ ul li{
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 img{
     max-width: 100px;
@@ -35,6 +36,10 @@ p{
 
 .card{
     width: 18rem;
+    box-shadow: 1px 1px 11px #00000030;
+}
+.card:hover{
+    transform: scale(1.05);
 }
 
 
