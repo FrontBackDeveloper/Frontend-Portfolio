@@ -1,31 +1,28 @@
-<div class="contenedor">
-	<div class="col-1"><h4>Logros</h4></div>
-	<div class="col-10"></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevoLogro()" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="Nuevo logro"></a></div>
-	<div class="container-fluid">
-		<ul>
-			<li *ngFor="let logro of logrosList , let i=index">
-				<div class="container">
-					<div class="card">
-							<div class="card-body">
-								<div class="img">
-									<img *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de logro">
-									<img *ngIf="logro.imagen !== '' " [src]="logro.imagen" alt="imagen de Logro">
-								</div>
-										<p class="card-text"><b>Título: </b>{{logro.titulo}}</p>
-										<p class="card-text"><b>Institución: </b>{{logro.institucion}}</p>
-										<p class="card-text"><b>Lugar: </b>{{logro.lugar}}</p>
-										<p class="card-text"><b>Fecha: </b>{{logro.fecha}}</p>
-										<p class="card-text"><b>Url: </b><a [href]="logro.url" target="_blank">{{logro.url}}</a></p>
-										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar logro"></a>																			
-										<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="Editar logro"></a>
-							</div>
-					</div>
-				</div>
-			</li>
-		</ul>
+<div class="container">
+	<div class="col-10"><h4>Logros</h4></div>
+	<div class="col-2"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevoLogro()" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="Nuevo logro"></a></div>
+	
+	<div class="row" *ngFor="let logro of logrosList , let i=index">
+		<div class="conatiner">
+			<div class="col-4">
+				<img class="media-object" style="width:60px" *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de logro">
+				<img class="media-object" style="width:60px" *ngIf="logro.imagen !== '' " [src]="logro.imagen" alt="imagen de Logro">
+			<div class="col8">
+			<h4 class="media-heading">{{logro.titulo}}</h4>
+			<p>{{logro.institucion}}</p>
+			<p>{{logro.lugar}}</p>
+			<p>{{logro.fecha}}</p>
+			<p><a [href]="logro.url" target="_blank">{{logro.url}}</a></p>
+			</div>
+			<div class="media-footer text-muted" *ngIf="isUserLogged"></div>
+			<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar logro"></a>																			
+			<a *ngIf="isUserLogged" href="#" (click)="seleccionarYEditar(i)" class="editar fa fa-edit" data-bs-toggle="modal" data-bs-target="#guardar-logros" title="Editar logro"></a>
+		</div>
+		</div>
+		
 	</div>
 </div>
+
 
 <!--- modal guardar-Logros-->
 <div class="modal fade" id="guardar-logros" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
