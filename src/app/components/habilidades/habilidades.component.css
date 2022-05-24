@@ -5,8 +5,10 @@
 
 /* Container for skill bars */
 .container {
-  width: 100%; /* Full width */
   max-width: 1200px;
+}
+.contenedor{
+  background-color: aqua;
 }
 
 .skills {
@@ -20,8 +22,28 @@
   width: 2%;
   background-color: #34495E;
 }
+.barra{
+  width: 100%;
+  background-color: #ccc;
+}
 
 li{
     list-style: none;
+}
+.icon{
+	color: #fff;
+	font-size: 25px;
+	margin: 0 10px;
+	transition: 0.4s;
+}
+.editar{
+	color: #000;
+	font-size: 25px;
+	margin: 0 10px;
+	transition: 0.4s;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
 }
 

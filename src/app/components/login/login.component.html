@@ -1,9 +1,7 @@
 
-<div class="contenedor">
-    <h1 class="tituloformulario">PortfolioWeb</h1>
-    <div id="contacto">
-       
-        <div class="contenedor-formularios">
+<div class="container-fluid">
+   
+    <div class="card">
             <h2 class="tituloformulario">Inicio de sesión</h2>
             <p class="parrafoformulario">Ingrese su email y contraseña</p>
 				<hr>
@@ -24,7 +22,7 @@
                
                 <p class="parrafoformulario">¿nuevo en PortfolioWeb? </p>
                     <p><a routerLink="/registro"> sí, Quiero registrarme</a> </p>
-        <div *ngIf="loginError" class="text-danger">Las credenciales ingresadas no existen en nuestros registros.</div> 
+               <div *ngIf="loginError" class="text-danger">Las credenciales ingresadas no existen en nuestros registros.</div> 
         
         <div class="d-grid gap-2">
             <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Iniciar sesión</button>
@@ -33,4 +31,3 @@
     </form>
         </div>
     </div>
-</div>

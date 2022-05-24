@@ -35,8 +35,9 @@ p{
 }
 
 .card{
-    width: 9rem;
+    width: 12rem;
     box-shadow: 1px 1px 11px #00000030;
+    box-sizing: content-box;
 }
 .card:hover{
     transform: scale(1.05);
