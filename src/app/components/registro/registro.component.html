@@ -1,9 +1,6 @@
-
-<div class="contenedor">
-    <h1 class="tituloformulario">PortfolioWeb</h1>
-    <div id="contacto">
-      
-        <div class="contenedor-formularios">
+<div class="container-fluid">
+   
+    <div class="card">
             <h2 class="tituloformulario">Registro de Usuario</h2>
             <br>
 				<hr>
@@ -20,20 +17,17 @@
                 <input type="password" placeholder="Ingrese su contraseña"  formControlName="password" class="form-control" required>
                </div>
                
-                
-                <div class="form-check">
-                    <label class="form-check-label" for="isenabled">Acepto los términos y condiciones </label>
-                    <input type="checkbox" [value]="true" formControlName="isenabled" 
-                                class="form-check-input" id="isenabled">
-                   
-                  </div>
-                  <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+               <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="isenabled"formControlName="isenabled">
+                  <label class="form-check-label" for="isenabled">Acepto los términos y condiciones</label>
+                </div>
+                <br>
              <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Registrarme</button>
                 <button routerLink="/home" class="btn btn-primary">Cancelar</button>
-             </div>      
-    </form>
+             </div>   
+          </form>
         </div>
-    </div>
 </div>
+
 

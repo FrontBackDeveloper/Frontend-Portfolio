@@ -14,7 +14,7 @@
 				  <p class="card-text">{{proyecto.creado}}</p>
 				  <p class="card-text">{{proyecto.herramientas}}</p>
 				  <p class="card-text">{{proyecto.estado}}</p>
-				  <p class="card-text"><b>Url: </b><a [href]="proyecto.url" target="_blank" >{{proyecto.url}}</a></p>
+				  <p class="card-text" *ngIf="proyecto.url !==''"><b>Url: </b><a [href]="proyecto.url" target="_blank" >{{proyecto.url}}</a></p>
 				</div>
 				<div class="card-footer text-muted" *ngIf="isUserLogged">
 					<a  (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"  
