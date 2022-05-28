@@ -30,13 +30,14 @@ export class EncabezadoComponent implements OnInit {
      ngOnInit(): void {
       this.isUserLogged = this.authservice.isUserLogged();  
       this.reloadData();
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }
 
     reloadData() {
       this.portfolio.obtenerDatosRedesSociales().subscribe(
         (data) => {
           this.redesList = data;
+          console.log(data);
         }
       );
     }

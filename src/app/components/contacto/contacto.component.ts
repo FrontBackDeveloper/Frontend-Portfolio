@@ -15,12 +15,15 @@ export class ContactoComponent implements OnInit {
   item:any=[];
   isUserLogged: Boolean = false;
   form: FormGroup;  
-  
+  siteKey: string;
+  lang: string;
 
   constructor(private portfolio:PortfolioService,
               private authservice:AuthService,
               private router: Router,
               private formBuilder: FormBuilder) {
+                this.siteKey = '6LdjX_4fAAAAADor07u8KkTleCCAGLTRB3HJvsx2';
+                this.lang = 'esp';
                 this.form = this.formBuilder.group({
                   id: [''],
                   nombre: ['', [Validators.required, Validators.maxLength(45)]],
@@ -39,7 +42,7 @@ export class ContactoComponent implements OnInit {
                       this.contactoList.push();
                       alert("Su mensaje fue enviado exitosamente");
                      console.log(this.form.value);
-                     this.router.navigate(['home']);
+                     this.router.navigate(['/home']);
                     });
               }
               get Nombre() {

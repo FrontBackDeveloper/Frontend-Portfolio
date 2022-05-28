@@ -23,7 +23,8 @@ export class EditarRedesSocialesComponent implements OnInit {
           {id:4, name: "instagram"},
           {id:5, name: "telegram"},
           {id:6, name: "twiter"},
-          {id:5, name: "whatsapp"}
+          {id:7, name: "whatsapp"},
+          {id:8, name: "github"},
         ];
   
   constructor(private portfolio:PortfolioService,
@@ -48,7 +49,7 @@ export class EditarRedesSocialesComponent implements OnInit {
       this.portfolio.obtenerDatosRedesSociales().subscribe(
         (data) => {
           this.redesList = data;
-          this.router.navigate(['editarredes'])
+          this.router.navigate(['/editarredes'])
         }
       );
 

@@ -13,25 +13,31 @@
 </div>
 
 
-<div class="contenedor">
+<div class="container-fluid">
 	<h4>Bandeja de entrada</h4>
 	<hr>
 	
 	<div class="container-fluid">
 		<ul>
 			<li *ngFor="let correo of correoList , let i=index">
-				<div class="container">
-					<div class="card">
-	  					<div class="card-body">
-						<p class="card-text"><b>De: </b>{{correo.nombre}}</p>
-                        <p class="card-text"><b>Correo electrónico: </b>{{correo.email}}</p>
-                        <p class="card-text"><b>Teléfono: </b>{{correo.telefono}}</p>
-                        <p class="card-text"><b>Mensaje: </b>{{correo.mensaje}}</p>
-						<a *ngIf="isUserLogged" href="#" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar correo"></a>																			
-						</div>
+				<div class="row">
+					<div class="col-10">
+						<p><b>De: </b>{{correo.nombre}}</p>
 					</div>
+					<div class="col-2">
+						<a *ngIf="isUserLogged" (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"   title="Eliminar correo"></a>																			
+					</div>		
 				</div>
+				<div class="row">
+					<div class="col-12">
+						<p><b>Correo electrónico: </b>{{correo.email}}</p>
+                        <p><b>Teléfono: </b>{{correo.telefono}}</p>
+                        <p><b>Mensaje: </b>{{correo.mensaje}}</p>
+					</div>
+					<hr>
+				</div>		
 			</li>
 		</ul>
+		
 	</div>
 </div>

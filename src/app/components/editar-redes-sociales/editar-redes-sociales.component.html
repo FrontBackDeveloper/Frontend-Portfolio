@@ -1,17 +1,17 @@
 <div class="topnav">
 	<div class="logo">
 	 <img src="../../../assets/logo_argentinaPrograma (2).jpg" alt="Logotipo Argentina Programa" title="Logotipo Argentina Programa">
-	 <a href="https://argentinaprograma.inti.gob.ar" target="blank">Argentina Programa - #YoProgramo</a>
 	</div>
  
 	<div class="menu">
 	   <a routerLink="/home">Home</a>
-	</div>
+	</div> 
 </div>
-<div class="contenedor">
-	<div class="col-4"><h4>Editar Redes Sociales</h4></div>
-	<div class="col-7"></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaRed()"
+<div class="container-fluid">
+	<h4>Editar Redes Sociales</h4>
+	<hr>
+	
+	<div class="col-12"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevaRed()"
                  data-bs-toggle="modal" data-bs-target="#guardar-redsocial" title="Nueva Red Social"></a></div>
 	<div class="container-fluid">
 		<ul>
@@ -43,10 +43,10 @@
 		<div class="modal-body">
 			<input type="hidden" name="id" formControlName="id">
             <label for="nombre">Nombre: </label>
-            <select formControlName="nombre" class="form-control" aria-placeholder="Elija una opción">
-                <option [ngValue]="null" disabled>Elija un nnombre</option>
+			<select class="form-select" aria-label="Elija una opción" formControlName="nombre">
+				<option [ngValue]="null" disabled>Elija un nombre</option>
                 <option *ngFor="let red of redes" [ngValue]="red.name">{{red.name}}</option>
-            </select>
+			</select>
 			<label for="url">Url: </label>
 			<input  type="text" class="form-control" formControlName="url"><br>
 			

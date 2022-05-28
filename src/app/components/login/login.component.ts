@@ -12,18 +12,25 @@ export class LoginComponent implements OnInit {
   //usuario: string = "";
   //password: string = "";
 
-  loginError: Boolean = false;
   form: FormGroup;
+  loginError: Boolean = false;
+  siteKey: string;
+  lang: string;
+
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
     ) {
-      this.form = this.formBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]]
-      })
+      this.siteKey = '6LdjX_4fAAAAADor07u8KkTleCCAGLTRB3HJvsx2';
+      this.lang = 'esp';
+      this.form = this.formBuilder.group(
+        {
+          email: ['', [Validators.required, Validators.email]],
+          password: ['', [Validators.required, Validators.minLength(6)]]
+        }
+      )
      }
 
   ngOnInit(): void {
@@ -31,16 +38,18 @@ export class LoginComponent implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault;
-    
+
     this.authService.login(this.form.value).subscribe(
       (response: Boolean) => {
-        if (response)
+        if (response){
           this.router.navigate(['/home']);
+        
+        }
+      
         else
           this.loginError = true;
       }
-    )
-      
+    );
   }
 
   get Email() {
@@ -50,4 +59,5 @@ export class LoginComponent implements OnInit {
   get Password() {
     return this.form.get('password');
   }
+
 }

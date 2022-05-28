@@ -42,6 +42,7 @@ export class FormacionComponent implements OnInit {
                 this.portfolio.obtenerDatosFormacion().subscribe(
                   (data) => {
                     this.formacionList = data;
+                    console.log(data);
                   }
                 );
               }
@@ -98,7 +99,7 @@ export class FormacionComponent implements OnInit {
             
               seleccionarYBorrar(index: number) {
                 let formacion: Formacion = this.formacionList[index];
-                if (confirm("¿Está seguro que desea borrar la formación seleccionada?")) {
+                if (confirm("¿Está seguro que desea borrar la educación seleccionada?")) {
                   this.portfolio.borrarDatosFormacion(formacion.id).subscribe(
                     () => {
                       this.reloadData();

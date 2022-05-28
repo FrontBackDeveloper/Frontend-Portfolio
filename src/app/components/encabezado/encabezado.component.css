@@ -1,3 +1,4 @@
+
 .logo a:hover {
   color: orange;
 }
@@ -5,24 +6,28 @@ img{
   width: 50px;
   border-radius: 5px;
   float: left;
-  margin: 5px 5px; 
-}
-a {
-  float: left;
-  display: block;
-  color: #000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.nav-link:hover{
-  font-size: 20px;
-  color: #34495E;
 }
 
-@media (max-width:450px) {
-.ocultar{
-  display: none;
-}
-}
     
+nav{
+  background-color: #34495E;
+	overflow: hidden;
+}
+nav ul{
+	list-style: none;
+}
+nav ul li{
+	float: right;
+}
+nav ul li a{
+	display: block;
+	color: #000;
+	text-decoration: none;
+}
+nav ul li a:hover{
+color: orange;
+}
+button{
+  margin-left: 20px;
+}
+
