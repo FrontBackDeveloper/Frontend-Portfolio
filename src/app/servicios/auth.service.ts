@@ -22,15 +22,14 @@ export class AuthService {
     );
   }
 
-  UsuarioNuevo(form: UsuarioNuevo): Observable<UsuarioNuevo> {
-    return this.http.post<UsuarioNuevo>(this.urlBase + "/registro" , form );
-  }
-
   public logout() {
     sessionStorage.removeItem("user");
   }
 
   public isUserLogged():boolean {
     return sessionStorage.getItem("user") !== null;
+  }
+  UsuarioNuevo(form: UsuarioNuevo): Observable<UsuarioNuevo> {
+    return this.http.post<UsuarioNuevo>(this.urlBase + "/registro" , form );
   }
 }

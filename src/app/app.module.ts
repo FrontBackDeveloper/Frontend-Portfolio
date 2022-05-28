@@ -25,6 +25,7 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { EditarRedesSocialesComponent } from './components/editar-redes-sociales/editar-redes-sociales.component';
 import { BandejaDeEntradaComponent } from './components/bandeja-de-entrada/bandeja-de-entrada.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 
@@ -47,13 +48,15 @@ import { RegistroComponent } from './components/registro/registro.component';
     EditarRedesSocialesComponent,
     BandejaDeEntradaComponent,
     RegistroComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   providers: [PortfolioService, AuthService],
   bootstrap: [AppComponent]

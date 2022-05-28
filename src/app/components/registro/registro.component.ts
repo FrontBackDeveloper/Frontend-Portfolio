@@ -13,15 +13,17 @@ export class RegistroComponent implements OnInit {
  //usuario: string = "";
   //password: string = "";
   usuariosList:UsuarioNuevo[] = [];
-
   registroError: Boolean = false;
   form: FormGroup;
+  siteKey: string;
+  lang: string;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
-    ) {
+    private formBuilder: FormBuilder) {
+      this.siteKey = '6LdjX_4fAAAAADor07u8KkTleCCAGLTRB3HJvsx2';
+      this.lang = 'esp';
       this.form = this.formBuilder.group({
         nombre: ['', [Validators.required, Validators.maxLength(45)]],
         email: ['', [Validators.required, Validators.email]],
@@ -34,15 +36,13 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(event: Event) {
-      let usuarioNuevo: UsuarioNuevo = this.form.value;
-      this.authService.UsuarioNuevo(usuarioNuevo).subscribe(
-        (data) => {
-          this.usuariosList.push(usuarioNuevo);
-         console.log(usuarioNuevo);
-         this.router.navigate(['home']);
+   
+      this.authService.UsuarioNuevo(this.form.value).subscribe(
+        (newUsuario: UsuarioNuevo) => {
+          this.usuariosList.push(newUsuario);
+          this.router.navigate(['/home']);
         }
-      );
-    
-  }
+      )
 }
 
+}

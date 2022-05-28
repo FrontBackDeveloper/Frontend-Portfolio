@@ -37,11 +37,6 @@ urlBase: string = "https://portfoliowebbackend.herokuapp.com";
     return this.http.put<Personas>(this.urlBase + "/personas/editar", personas);
   }
 
-  // -------CRUD ACERCA DE------ //
-  obtenerDatosAcercade(): Observable<Acercade[]> {
-    return this.http.get<any>(this.urlBase + "/acercade/traer");
-  }
-
 // -------CRUD FORMACION------ //
 
   obtenerDatosFormacion(): Observable<Formacion[]> {

@@ -1,5 +1,5 @@
 .container-fluid {
-	margin-top: 65px;
+	margin-top: 55px;
 	padding:40px;
 	background-image: url(../../../assets/fondo-header.jpg);
 	background-size: 100vw 100hw;
@@ -42,7 +42,7 @@ button:hover{
 	color: #fff;
 	transition: 0.4s;
 }
-@media (max-width:450px) {
+@media (max-width:530px) {
 	h1{
 		font-size: 35px;
 	}

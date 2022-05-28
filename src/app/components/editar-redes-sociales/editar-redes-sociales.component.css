@@ -47,5 +47,26 @@
     background-color: #ddd;
     color: black;
   }
-  
-  
+  .icon{
+    color: #fff;
+    font-size: 25px;
+    margin: 0 10px;
+    transition: 0.4s;
+  }
+  .editar{
+    color: #000;
+    font-size: 25px;
+    margin: 0 10px;
+    transition: 0.4s;
+  }
+  a{
+    text-decoration: none;
+  }
+  @media (max-width: 450px){
+    .topnav .logo a{
+      display: none;
+    }
+    h4{
+      font-size: 15px;
+    }
+  }

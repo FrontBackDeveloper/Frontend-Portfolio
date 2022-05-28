@@ -5,6 +5,7 @@ import { Formacion } from 'src/app/data/Formacion';
 import { Experiencia } from 'src/app/data/Experiencia';
 import { Logros } from 'src/app/data/Logros';
 import { Router } from '@angular/router';
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-cv',
@@ -40,6 +41,11 @@ export class CVComponent implements OnInit {
     });
   }
   descargarCV(){
+
+    const pdf = new jsPDF(); 
+
+    pdf.save("curriculum.pdf");
+
     alert("Se ha descargado correctamente");
     this.router.navigate(['/home']);
   }

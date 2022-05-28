@@ -58,3 +58,6 @@ h1{
 	background: #34495E;
 	cursor: pointer;
 }
+.captcha{
+	text-align: center;
+}

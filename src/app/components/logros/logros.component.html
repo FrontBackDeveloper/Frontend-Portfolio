@@ -1,47 +1,44 @@
 <div class="container">
-	<div class="col-11"><h4>Logros</h4></div>
-	<div class="col-1"><a  *ngIf="isUserLogged" href="#"  class="editar fa fa-plus" (click)="nuevoLogro()" 
-							data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" title="Nuevo logro"></a></div>
 	
-	<div class="position-relative" *ngFor="let logro of logrosList , let i=index">
-		<img class="img-thumbnail float-start" *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de logro">
-		<img class="img-thumbnail float-start" *ngIf="logro.imagen !== '' " [src]="logro.imagen" alt="imagen de Logro">
-		<div class="position-absolute bottom-0 end-0" >
-			<a data-bs-toggle="modal" href="#exampleModalToggle">Ver mas</a>
+	<div class="col-11"><h4>Logros</h4></div>
+	<div class="col-1"><a  *ngIf="isUserLogged" class="editar fa fa-plus" (click)="nuevoLogro()" data-bs-toggle="modal" data-bs-target="#guardar-logros"
+							 title="Nuevo logro"></a>
+	</div>
+ 
+<div class="row" *ngFor="let logro of logrosList , let i=index">	
+		
+	<div class="container">
+		<div class="card text-center">
+			<div class="card-header">
+				<img class="card-img-top" *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de institución">
+				<img class="card-img-top" *ngIf="logro.imagen !== '' "[src]="logro.imagen" alt="logo de institución">
+			</div>
+			<div class="card-body">
+			  <h5 class="card-title">{{logro.titulo}}</h5>
+			  <p class="card-text">{{logro.institucion}}</p>
+			  <p class="card-text">{{logro.lugar}}</p>
+			  <p class="card-text">{{logro.fecha}}</p>
+			</div>
+			<div class="card-footer text-muted" *ngIf="isUserLogged">
+				<a  (click)="seleccionarYBorrar(i)" class="editar fa fa-trash"  
+													title="Eliminar educación"></a>																			
+				<a  (click)="seleccionarYEditar(i)" class="editar fa fa-edit"
+												   data-bs-toggle="modal" data-bs-target="#guardar-logros" 
+												   title="Editar logros"></a>
+			</div>
 		</div>
 	</div>
 </div>
 
 
-<!--- modal doble 1)ampliar imagen y detalles 2)editar logro-->
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-	<div class="modal-dialog modal-dialog-centered" *ngFor="let logro of logrosList ; let i=index">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalToggleLabel">{{logro.titulo}}</h5>
-		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<img class="card-img-top" *ngIf="logro.imagen == '' " src="../../../assets/imagen.png" alt="logo de institución">
-		    <img class="card-img-top" *ngIf="logro.imagen !== '' "[src]="logro.imagen" alt="logo de institución">
-			<p class="card-text">{{logro.institucion}}</p>
-			<p class="card-text">{{logro.lugar}}</p>
-			<p class="card-text">{{logro.fecha}}</p>
-		</div>
-		<div class="modal-footer" *ngIf="isUserLogged">
-			<a  (click)="seleccionarYBorrar(i)" class="editar fa fa-trash" title="Eliminar logro"></a>																			
-			<a  (click)="seleccionarYEditar(i)" class="editar fa fa-edit"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" 
-		 																   title="Editar logro"></a>
-		</div>
-	  </div>
-	</div>
-  </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<!--- modal nuevo logro-->
+
+  <div class="modal fade" id="guardar-logros" aria-hidden="true" aria-labelledby="guardar-logros" tabindex="-1">
 	<div class="modal-dialog modal-dialog-centered">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalToggleLabel2">Logros</h5>
+		  <h5 class="modal-title" id="guardar-logros">Logros</h5>
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
@@ -62,7 +59,6 @@
 
 				<div class="modal-footer">
 				<button type="submit" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
-				<button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">volver</button>
 				</div>
 			</form>
 		</div>

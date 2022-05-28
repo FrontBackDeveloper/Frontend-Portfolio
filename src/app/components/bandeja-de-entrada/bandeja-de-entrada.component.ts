@@ -38,12 +38,13 @@ export class BandejaDeEntradaComponent implements OnInit {
               }
             
               seleccionarYBorrar(index: number) {
+                console.log(index);
                 let correo: Contacto = this.correoList[index];
                 if (confirm("¿Está seguro que desea borrar el correo seleccionado?")) {
                   this.portfolio.borrarDatosContacto(correo.id).subscribe(
                     () => {
                       this.reloadData();
-                      this.router.navigate(['bandejadeentrada']);
+                      this.router.navigate(['/bandejadeentrada']);
                     }
                   )
                 }

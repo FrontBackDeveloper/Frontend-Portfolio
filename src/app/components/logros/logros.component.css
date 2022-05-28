@@ -18,23 +18,39 @@
 	font-size: 25px;
 	margin: 0 10px;
 	transition: 0.4s;
-	cursor: pointer;
 }
 ul li{
 	list-style: none;
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 img{
-    max-width: 100%;
-}
-.row{
-	justify-content: space-around;
+    max-width: 100px;
 }
 p{
-	text-align: center;
+    text-align: center;
+    color: black;
 }
-a{
-	text-decoration: none;
+
+.card{
+    width: 18rem;
+    box-shadow: 1px 1px 11px #00000030;
+}
+.card:hover{
+    transform: scale(1.05);
+}
+
+
+@media (max-width:480px) {
+	img{
+		width: 80 px;
+	}
+    p{
+        text-align: center;
+    }
+    a{
+        display: inline;
+    }
 }

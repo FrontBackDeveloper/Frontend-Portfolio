@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class AcercadeComponent implements OnInit {
   infoPersonal:Personas[] = [];
-  infoPersonalAcercade: any =[];
   redesList:RedesSociales[] = [];
   isUserLogged: Boolean = false;
   item:any=[];
@@ -52,15 +51,10 @@ export class AcercadeComponent implements OnInit {
           console.log(data);
         }
       );
-      this.portfolio.obtenerDatosAcercade().subscribe(
-        (data) => {
-          this.infoPersonalAcercade = data;
-          console.log(data);
-        }
-      );
-      this.portfolio.obtenerDatosRedesSociales().subscribe(
+     this.portfolio.obtenerDatosRedesSociales().subscribe(
         (data) => {
           this.redesList = data;
+          console.log(data);
         }
       );
 

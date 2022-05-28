@@ -73,7 +73,7 @@ export class HabilidadesComponent implements OnInit {
                     (newHabilidad: Habilidades) => {
                       this.habilidadesList.push(newHabilidad);
                       console.log(habilidades);
-                      this.ngOnInit();
+                      this.reloadData();
                     }
                   );
                 
