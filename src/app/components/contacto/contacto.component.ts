@@ -41,7 +41,7 @@ export class ContactoComponent implements OnInit {
                   this.portfolio.guardarDatosContacto(this.form.value).subscribe(data => {
                       this.contactoList.push();
                       alert("Su mensaje fue enviado exitosamente");
-                     console.log(this.form.value);
+                   
                      this.router.navigate(['/home']);
                     });
               }

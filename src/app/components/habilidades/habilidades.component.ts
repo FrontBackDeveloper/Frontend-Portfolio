@@ -45,7 +45,7 @@ export class HabilidadesComponent implements OnInit {
                 this.portfolio.obtenerDatosHabilidades().subscribe(
                   (data) => {
                     this.habilidadesList = data;
-                    console.log(data);
+                 
                   }
                 );
               }

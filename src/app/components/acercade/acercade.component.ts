@@ -48,13 +48,13 @@ export class AcercadeComponent implements OnInit {
       this.portfolio.obtenerDatosPersonas().subscribe(
         (data) => {
           this.infoPersonal = data;
-          console.log(data);
+        
         }
       );
      this.portfolio.obtenerDatosRedesSociales().subscribe(
         (data) => {
           this.redesList = data;
-          console.log(data);
+         
         }
       );
 

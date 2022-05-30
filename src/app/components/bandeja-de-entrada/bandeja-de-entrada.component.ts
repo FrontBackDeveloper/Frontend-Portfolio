@@ -31,8 +31,7 @@ export class BandejaDeEntradaComponent implements OnInit {
                 this.portfolio.obtenerDatosContacto().subscribe(
                   (data) => {
                     this.correoList = data;
-                    console.log(data);
-                  
+                   
                   }
                 );
               }
