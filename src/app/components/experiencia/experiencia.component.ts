@@ -43,7 +43,7 @@ export class ExperienciaComponent implements OnInit {
                 this.portfolio.obtenerDatosExperiencia().subscribe(
                   (data) => {
                     this.experienciaList = data;
-                    console.log(data);
+                   
                   }
                 );
               }

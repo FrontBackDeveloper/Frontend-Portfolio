@@ -24,20 +24,20 @@ export class CVComponent implements OnInit {
   ngOnInit(): void {
     this.portfolio.obtenerDatosPersonas().subscribe(data =>{
       this.infoPersonal=data;
-      console.log(data);
+    
     });
 
     this.portfolio.obtenerDatosFormacion().subscribe(data =>{
       this.formacionList=data;
-      console.log(data);
+     
     });
     this.portfolio.obtenerDatosExperiencia().subscribe(data =>{
       this.experienciaList=data;
-      console.log(data);
+     
     });
     this.portfolio.obtenerDatosLogros().subscribe(data =>{
       this.logrosList=data;
-      console.log(data);
+     
     });
   }
   descargarCV(){

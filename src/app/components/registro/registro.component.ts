@@ -40,7 +40,9 @@ export class RegistroComponent implements OnInit {
       this.authService.UsuarioNuevo(this.form.value).subscribe(
         (newUsuario: UsuarioNuevo) => {
           this.usuariosList.push(newUsuario);
+          alert("El nuevo Usuario fue creado exitósamente");
           this.router.navigate(['/home']);
+         
         }
       )
 }

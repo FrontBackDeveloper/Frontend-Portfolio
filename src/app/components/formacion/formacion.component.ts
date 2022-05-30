@@ -42,7 +42,7 @@ export class FormacionComponent implements OnInit {
                 this.portfolio.obtenerDatosFormacion().subscribe(
                   (data) => {
                     this.formacionList = data;
-                    console.log(data);
+                   
                   }
                 );
               }

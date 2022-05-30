@@ -42,7 +42,7 @@ export class LogrosComponent implements OnInit {
                 this.portfolio.obtenerDatosLogros().subscribe(
                   (data) => {
                     this.logrosList = data;
-                    console.log(data);
+                   
                   }
                 );
               }
